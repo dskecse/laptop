@@ -1,6 +1,8 @@
-# Laptop
+[![Build Status](https://travis-ci.org/dskecse/laptop.svg?branch=master)](https://travis-ci.org/dskecse/laptop)
 
-## Mac OS X
+## Setup
+
+### Mac OS X
 
 Use [thoughtbot's laptop script](https://github.com/thoughtbot/laptop) to set up
 an OS X development environment:
