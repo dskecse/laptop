@@ -75,6 +75,9 @@ fancy_echo "Installing Java ..."
 fancy_echo "Installing maven ..."
   brew_install_or_upgrade 'maven'
 
+fancy_echo "Installing Eclipse ..."
+  brew_cask_install_or_skip 'eclipse-jee'
+
 fancy_echo "Installing macvim ..."
   brew_install_or_upgrade 'macvim --with-lua --with-luajit'
 
