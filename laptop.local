@@ -46,6 +46,7 @@ fancy_echo "Installing Elixir ..."
 
 fancy_echo "Installing Homebrew Cask ..."
   brew_install_or_upgrade 'caskroom/cask/brew-cask'
+  brew_tap 'caskroom/versions'
 
 brew_cask_install_or_skip() {
   if ! brew_cask_is_installed "$1"; then
@@ -90,6 +91,9 @@ fancy_echo "Installing macvim ..."
 
 fancy_echo "Installing emacs ..."
   brew_install_or_upgrade 'emacs --with-cocoa'
+
+fancy_echo "Installing Mozart2 ..."
+  brew_cask_install_or_skip 'mozart2'
 
 # TODO: set up python development environment
 
