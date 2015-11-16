@@ -193,3 +193,6 @@ fancy_echo "Installing docker ..."
     boot2docker init
     boot2docker start
   fi
+
+fancy_echo "duff ..."
+  brew_install_or_upgrade 'duff'
