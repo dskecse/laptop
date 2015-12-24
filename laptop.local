@@ -185,12 +185,7 @@ fancy_echo "Installing jq ..."
   brew_install_or_upgrade 'jq'
 
 fancy_echo "Installing docker ..."
-  brew_cask_install_or_skip 'boot2docker'
-
-  if [[ ! -d "$HOME/.boot2docker" ]]; then
-    boot2docker init
-    boot2docker start
-  fi
+  brew_cask_install_or_skip 'dockertoolbox'
 
 fancy_echo "duff ..."
   brew_install_or_upgrade 'duff'
