@@ -94,9 +94,8 @@ fancy_echo "Installing Mozart2 ..."
   brew_cask_install_or_skip 'mozart2'
 
 # TODO: set up python development environment
+brew_cask_install_or_skip 'googleappengine'
 
-# TODO: install Google App Engine SDK
-# https://cloud.google.com/appengine/downloads
 sudo pip install lxml
 # http://stackoverflow.com/questions/21004960/no-module-named-lxml-html-while-running-python-script-on-fedora
 
