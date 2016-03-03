@@ -188,3 +188,8 @@ fancy_echo "Installing docker ..."
 
 fancy_echo "duff ..."
   brew_install_or_upgrade 'duff'
+
+if [[ ! -f "$HOME/.gem/credentials" ]]; then
+  curl -u$USER https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
+  chmod 0600 ~/.gem/credentials
+fi
