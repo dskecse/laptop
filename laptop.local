@@ -193,3 +193,5 @@ if [[ ! -f "$HOME/.gem/credentials" ]]; then
   curl -u$USER https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
   chmod 0600 ~/.gem/credentials
 fi
+
+brew_install_or_upgrade 'exercism'
