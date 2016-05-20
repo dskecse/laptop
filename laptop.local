@@ -56,24 +56,10 @@ brew 'emacs', args: ['with-cocoa']
 cask 'mozart2'
 
 brew 'macvim', args: ['with-lua', 'with-luajit']
-EOF
 
-if [[ ! -d "$HOME/.vim/" ]]; then
-  git clone git@ssh.github.com:dskecse/dotvim.git ~/.vim
-  pushd ~/.vim
-  rake setup
-  popd
-fi
-
-brew bundle --file=- <<EOF
 # TODO: set up python development environment
 cask 'googleappengine'
-EOF
 
-# http://stackoverflow.com/questions/21004960/no-module-named-lxml-html-while-running-python-script-on-fedora
-sudo pip install lxml
-
-brew bundle --file=- <<EOF
 # http://cran.rstudio.com/
 # http://stackoverflow.com/questions/14009606/homebrew-r-build-missing-cairo
 cask 'xquartz'
@@ -103,11 +89,7 @@ cask 'dockertoolbox'
 # brew 'nasm'
 
 brew 'pow'
-EOF
 
-gem_install_or_update 'powder'
-
-brew bundle --file=- <<EOF
 brew 'gpg2'
 brew 'gpg-agent'
 
@@ -123,6 +105,18 @@ EOF
 
 # To get rid of "error: could not run gpg." w/ git-commit
 ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
+
+gem_install_or_update 'powder'
+
+# http://stackoverflow.com/questions/21004960/no-module-named-lxml-html-while-running-python-script-on-fedora
+sudo pip install lxml
+
+if [[ ! -d "$HOME/.vim/" ]]; then
+  git clone git@ssh.github.com:dskecse/dotvim.git ~/.vim
+  pushd ~/.vim
+  rake setup
+  popd
+fi
 
 if [[ ! -d "$HOME/.aws" ]]; then
   aws configure
