@@ -1,8 +1,8 @@
 language: sh
 
-before_script:
-  - sudo apt-get -y update
-  - sudo apt-get -y install shellcheck
+before_install:
+  - wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/shellcheck_0.3.7-5_amd64.deb"
+  - sudo dpkg -i "shellcheck_0.3.7-5_amd64.deb"
 
 script:
   - shellcheck laptop.local
