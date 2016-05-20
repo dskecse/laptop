@@ -8,6 +8,10 @@ if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
 fi
 
 brew bundle --file=- <<EOF
+brew 'awscli'
+brew 'duff'
+brew 'exercism'
+brew 'jq'
 brew 'graphviz'
 brew 'tree'
 brew 'ipcalc'
@@ -17,11 +21,9 @@ brew 'tig', args: ['with-docs']
 brew 'dos2unix'
 brew 'screenfetch'
 brew 'mysql'
-EOF
 
 # http://stackoverflow.com/questions/9134423/os-x-lion-attempting-nokogiri-install-libxml2-is-missing
 # http://www.nokogiri.org/tutorials/installing_nokogiri.html
-brew bundle --file=- <<EOF
 brew 'libxml2'
 brew 'libxslt'
 EOF
@@ -50,6 +52,9 @@ cask 'java'
 brew 'maven'
 cask 'eclipse-jee'
 
+brew 'emacs', args: ['with-cocoa']
+cask 'mozart2'
+
 brew 'macvim', args: ['with-lua', 'with-luajit']
 EOF
 
@@ -61,9 +66,6 @@ if [[ ! -d "$HOME/.vim/" ]]; then
 fi
 
 brew bundle --file=- <<EOF
-brew 'emacs', args: ['with-cocoa']
-cask 'mozart2'
-
 # TODO: set up python development environment
 cask 'googleappengine'
 EOF
@@ -86,6 +88,7 @@ brew 'ghc'
 brew 'cabal-install'
 
 brew 'mongodb'
+brew 'rabbitmq'
 
 cask 'firefox'
 brew 'chromedriver'
@@ -93,16 +96,16 @@ brew 'chromedriver'
 cask 'ngrok'
 cask 'dropbox'
 
-# brew 'rust'
-
 cask 'skype'
+cask 'dockertoolbox'
+
+# brew 'rust'
+# brew 'nasm'
 
 brew 'pow'
 EOF
 
 gem_install_or_update 'powder'
-
-# brew 'nasm'
 
 brew bundle --file=- <<EOF
 brew 'gpg2'
@@ -121,23 +124,9 @@ EOF
 # To get rid of "error: could not run gpg." w/ git-commit
 ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
 
-brew bundle --file=- <<EOF
-brew 'rabbitmq'
-brew 'awscli'
-EOF
-
 if [[ ! -d "$HOME/.aws" ]]; then
   aws configure
 fi
-
-brew bundle --file=- <<EOF
-brew 'jq'
-
-cask 'dockertoolbox'
-
-brew 'duff'
-brew 'exercism'
-EOF
 
 if [[ ! -f "$HOME/.gem/credentials" ]]; then
   curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
