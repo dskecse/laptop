@@ -27,6 +27,8 @@ brew 'mysql'
 # http://www.nokogiri.org/tutorials/installing_nokogiri.html
 brew 'libxml2'
 brew 'libxslt'
+
+tap 'homebrew/services'
 EOF
 
 # In the past it was necessary to install Apple's XCode IDE to get
