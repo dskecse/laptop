@@ -58,8 +58,6 @@ cask 'eclipse-jee'
 brew 'emacs', args: ['with-cocoa']
 cask 'mozart2'
 
-brew 'macvim', args: ['with-lua', 'with-luajit']
-
 # TODO: set up python development environment
 cask 'googleappengine'
 
