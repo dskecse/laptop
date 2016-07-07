@@ -16,7 +16,6 @@ brew 'gist'
 brew 'graphviz'
 brew 'tree'
 brew 'ipcalc'
-brew 'mc'
 brew 'nmap'
 brew 'tig', args: ['with-docs']
 brew 'dos2unix'
