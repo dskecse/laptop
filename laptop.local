@@ -55,6 +55,7 @@ brew 'maven'
 cask 'eclipse-jee'
 
 brew 'emacs', args: ['with-cocoa']
+tap 'dskecse/tap'
 cask 'mozart2'
 
 # TODO: set up python development environment
