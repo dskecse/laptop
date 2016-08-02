@@ -84,7 +84,7 @@ cask 'ngrok'
 cask 'dropbox'
 
 cask 'skype'
-cask 'dockertoolbox'
+cask 'docker-toolbox'
 
 # brew 'rust'
 # brew 'nasm'
