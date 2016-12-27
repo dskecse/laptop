@@ -79,6 +79,9 @@ brew 'cabal-install'
 
 cask 'elm-platform'
 
+tap 'joshuaclayton/formulae'
+brew 'unused'
+
 brew 'mongodb'
 brew 'rabbitmq'
 
