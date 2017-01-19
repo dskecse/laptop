@@ -93,9 +93,6 @@ cask 'dropbox'
 cask 'skype'
 cask 'docker-toolbox'
 
-# brew 'rust'
-# brew 'nasm'
-
 brew 'pow'
 
 brew 'gpg2'
