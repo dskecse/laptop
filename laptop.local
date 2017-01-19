@@ -39,7 +39,6 @@ tap 'homebrew/versions'
 brew 'phantomjs182'
 
 tap 'homebrew/binary'
-brew 'jsl'
 
 brew 'erlang'
 brew 'elixir'
