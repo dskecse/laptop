@@ -121,9 +121,7 @@ sudo pip install lxml
 
 if [[ ! -d "$HOME/.vim/" ]]; then
   git clone git@ssh.github.com:dskecse/dotvim.git ~/.vim
-  pushd ~/.vim
-  rake setup
-  popd
+  ln -sf ~/.vim/vimrc ~/.vimrc
 fi
 
 if [[ ! -d "$HOME/.aws" ]]; then
