@@ -39,6 +39,7 @@ tap 'homebrew/versions'
 brew 'phantomjs182'
 
 tap 'homebrew/binary'
+brew 'kindlegen'
 
 brew 'erlang'
 brew 'elixir'
