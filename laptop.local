@@ -46,7 +46,6 @@ brew 'elixir'
 tap 'caskroom/versions'
 cask 'iterm2'
 
-# http://hanxue-it.blogspot.com/2014/05/installing-java-8-managing-multiple.html
 cask 'java'
 
 brew 'maven'
