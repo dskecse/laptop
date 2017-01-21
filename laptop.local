@@ -38,6 +38,8 @@ brew bundle --file=- <<EOF
 tap 'homebrew/versions'
 brew 'phantomjs182'
 
+brew 'yarn'
+
 cask 'kindlegen'
 
 brew 'erlang'
