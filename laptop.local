@@ -93,7 +93,7 @@ cask 'ngrok'
 cask 'dropbox'
 
 cask 'skype'
-cask 'docker-toolbox'
+cask 'docker'
 
 brew 'pow'
 
