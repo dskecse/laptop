@@ -19,7 +19,6 @@ brew 'nmap'
 brew 'tig', args: ['with-docs']
 brew 'dos2unix'
 brew 'screenfetch'
-brew 'mysql'
 
 # http://stackoverflow.com/questions/9134423/os-x-lion-attempting-nokogiri-install-libxml2-is-missing
 # http://www.nokogiri.org/tutorials/installing_nokogiri.html
@@ -27,6 +26,8 @@ brew 'libxml2'
 brew 'libxslt'
 
 tap 'homebrew/services'
+
+brew 'mysql', restart_service: true
 EOF
 
 # In the past it was necessary to install Apple's XCode IDE to get
