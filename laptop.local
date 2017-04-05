@@ -109,6 +109,9 @@ brew 'pinentry-mac'
 # every shell
 # http://nullprogram.com/blog/2012/06/08/
 brew 'keychain'
+
+brew 'lame'
+brew 'ffmpeg'
 EOF
 
 # To get rid of "error: could not run gpg." w/ git-commit
