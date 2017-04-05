@@ -112,7 +112,13 @@ brew 'keychain'
 
 brew 'lame'
 brew 'ffmpeg'
+
+# capybara-webkit gem depends on a Webkit implementation from Qt
+# https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
+brew 'qt@5.5'
 EOF
+
+brew link --force qt55
 
 # To get rid of "error: could not run gpg." w/ git-commit
 ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
