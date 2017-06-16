@@ -37,7 +37,7 @@ xcode-select --install
 
 brew bundle --file=- <<EOF
 tap 'homebrew/versions'
-brew 'phantomjs182'
+brew 'phantomjs'
 
 brew 'yarn'
 
