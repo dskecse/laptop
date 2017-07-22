@@ -59,6 +59,7 @@ tap 'dskecse/tap'
 cask 'mozart2'
 
 # TODO: set up python development environment
+brew 'libsass'
 # It looks like the protobuf pip package conflicts with webapp2 resulting in
 #   ImportError: No module named webapp2
 # https://groups.google.com/forum/#!topic/google-appengine/LucknWk8iaQ
@@ -70,6 +71,7 @@ cask 'xquartz'
 
 tap 'homebrew/science'
 brew 'R', args: ['build-from-source']
+brew 'matplotlib'
 
 # http://www.rstudio.com/ide/download/desktop
 cask 'rstudio'
@@ -87,7 +89,7 @@ brew 'unused'
 brew 'mongodb'
 
 cask 'firefox'
-brew 'chromedriver'
+brew 'chromedriver', restart_service: true
 
 cask 'ngrok'
 cask 'dropbox'
@@ -95,7 +97,11 @@ cask 'dropbox'
 cask 'skype'
 cask 'docker'
 
+brew 'dnsmasq', restart_service: true
+
 brew 'pow'
+
+brew 'watch'
 
 brew 'gpg2'
 brew 'gpg-agent'
