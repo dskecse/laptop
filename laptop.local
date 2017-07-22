@@ -68,6 +68,7 @@ cask 'googleappengine'
 # http://cran.rstudio.com/
 # http://stackoverflow.com/questions/14009606/homebrew-r-build-missing-cairo
 cask 'xquartz'
+brew 'cairo'
 
 tap 'homebrew/science'
 brew 'R', args: ['build-from-source']
