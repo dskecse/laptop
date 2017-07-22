@@ -85,7 +85,6 @@ tap 'joshuaclayton/formulae'
 brew 'unused'
 
 brew 'mongodb'
-brew 'rabbitmq'
 
 cask 'firefox'
 brew 'chromedriver'
