@@ -65,18 +65,6 @@ brew 'libsass'
 # https://groups.google.com/forum/#!topic/google-appengine/LucknWk8iaQ
 cask 'googleappengine'
 
-# http://cran.rstudio.com/
-# http://stackoverflow.com/questions/14009606/homebrew-r-build-missing-cairo
-cask 'xquartz'
-brew 'cairo'
-
-tap 'homebrew/science'
-brew 'R', args: ['build-from-source']
-brew 'matplotlib'
-
-# http://www.rstudio.com/ide/download/desktop
-cask 'rstudio'
-
 brew 'ghc'
 brew 'cabal-install'
 
