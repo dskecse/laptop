@@ -50,6 +50,7 @@ tap 'caskroom/versions'
 cask 'iterm2'
 
 cask 'java'
+brew 'elasticsearch', restart_service: true
 
 brew 'maven'
 cask 'eclipse-jee'
