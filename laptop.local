@@ -85,6 +85,7 @@ cask 'dropbox'
 
 cask 'skype'
 cask 'docker'
+cask 'tunnelbear'
 
 brew 'dnsmasq', restart_service: true
 
