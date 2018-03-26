@@ -109,6 +109,8 @@ brew 'keychain'
 brew 'lame'
 brew 'ffmpeg'
 
+brew 'wrk'
+
 # capybara-webkit gem depends on a Webkit implementation from Qt
 # https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
 brew 'qt@5.5'
