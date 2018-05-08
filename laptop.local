@@ -71,7 +71,7 @@ brew 'cabal-install'
 
 cask 'elm-platform'
 
-brew 'mit-scheme'
+brew 'gauche'
 
 tap 'joshuaclayton/formulae'
 brew 'unused'
