@@ -46,7 +46,7 @@ cask 'kindlegen'
 brew 'erlang'
 brew 'elixir'
 
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
 cask 'iterm2'
 
 cask 'java'
