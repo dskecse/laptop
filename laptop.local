@@ -80,7 +80,7 @@ brew 'unused'
 brew 'mongodb'
 
 cask 'firefox'
-brew 'chromedriver', restart_service: true
+cask 'chromedriver'
 
 cask 'ngrok'
 cask 'dropbox'
