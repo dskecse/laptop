@@ -36,7 +36,6 @@ EOF
 xcode-select --install
 
 brew bundle --file=- <<EOF
-tap 'homebrew/versions'
 brew 'phantomjs'
 
 brew 'yarn'
