@@ -36,8 +36,6 @@ EOF
 xcode-select --install
 
 brew bundle --file=- <<EOF
-brew 'phantomjs'
-
 brew 'yarn'
 
 cask 'kindlegen'
