@@ -71,6 +71,9 @@ cask 'elm-platform'
 
 brew 'gauche'
 
+brew 'leiningen'
+brew 'clojure'
+
 tap 'joshuaclayton/formulae'
 brew 'unused'
 
