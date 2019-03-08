@@ -119,6 +119,8 @@ brew 'ffmpeg'
 # https://github.com/thoughtbot/capybara-webkit/issues/1072#issuecomment-430311949
 
 cask 'postico'
+
+cask 'fliqlo'
 EOF
 
 # brew link --force qt55
