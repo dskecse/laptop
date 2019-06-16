@@ -69,8 +69,6 @@ brew 'cabal-install'
 
 cask 'elm-platform'
 
-brew 'gauche'
-
 brew 'leiningen'
 brew 'clojure'
 
