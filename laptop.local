@@ -92,6 +92,7 @@ cask 'tunnelbear'
 brew 'dnsmasq', restart_service: true
 
 brew 'pow'
+brew 'hivemind'
 
 brew 'watch'
 
