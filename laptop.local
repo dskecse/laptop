@@ -92,7 +92,9 @@ cask 'tunnelbear'
 brew 'dnsmasq', restart_service: true
 
 brew 'pow'
-brew 'hivemind'
+# FYI: Requires tmux.
+# https://evilmartians.com/chronicles/introducing-overmind-and-hivemind
+brew 'overmind'
 
 brew 'watch'
 
