@@ -69,7 +69,7 @@ cask 'googleappengine'
 brew 'ghc'
 brew 'cabal-install'
 
-cask 'elm-platform'
+brew 'elm'
 
 brew 'leiningen'
 brew 'clojure'
