@@ -48,12 +48,12 @@ brew 'elixir'
 tap 'homebrew/cask-versions'
 cask 'iterm2'
 
-cask 'java'
+cask 'java11'
 brew 'elasticsearch', restart_service: true
 
 brew 'maven'
 brew 'gradle'
-cask 'eclipse-jee'
+cask 'eclipse-java'
 
 brew 'emacs', args: ['with-cocoa']
 tap 'dskecse/tap'
