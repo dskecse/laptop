@@ -65,6 +65,7 @@ brew 'libsass'
 #   ImportError: No module named webapp2
 # https://groups.google.com/forum/#!topic/google-appengine/LucknWk8iaQ
 cask 'googleappengine'
+cask 'google-cloud-sdk'
 
 brew 'ghc'
 brew 'cabal-install'
