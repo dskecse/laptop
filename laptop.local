@@ -99,6 +99,9 @@ brew 'overmind'
 
 brew 'watch'
 
+tap 'getsentry/tools'
+brew 'sentry-cli'
+
 brew 'gpg2'
 brew 'gpg-agent'
 
