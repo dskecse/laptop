@@ -49,7 +49,7 @@ brew 'elixir'
 tap 'homebrew/cask-versions'
 cask 'iterm2'
 
-cask 'java11'
+cask 'java'
 brew 'elasticsearch', restart_service: true
 
 brew 'maven'
