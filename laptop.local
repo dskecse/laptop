@@ -76,6 +76,8 @@ brew 'elm'
 brew 'leiningen'
 brew 'clojure'
 
+cask 'julia'
+
 tap 'joshuaclayton/formulae'
 brew 'unused'
 
