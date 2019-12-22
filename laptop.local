@@ -77,6 +77,8 @@ brew 'leiningen'
 brew 'clojure'
 
 cask 'julia'
+# Juno IDE is built on Atom https://junolab.org/
+cask 'atom'
 
 tap 'joshuaclayton/formulae'
 brew 'unused'
