@@ -56,7 +56,7 @@ brew 'maven'
 brew 'gradle'
 cask 'eclipse-java'
 
-brew 'emacs', args: ['with-cocoa']
+cask 'emacs'
 tap 'dskecse/tap'
 cask 'mozart2'
 
