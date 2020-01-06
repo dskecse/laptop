@@ -1,11 +1,16 @@
-language: sh
+os: osx
+osx_image: xcode11.3
+addons:
+  homebrew:
+    packages:
+    - shellcheck
+    update: true
 
-before_install:
-  - wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/shellcheck_0.4.4-4_amd64.deb"
-  - sudo dpkg -i "shellcheck_0.4.4-4_amd64.deb"
+language: sh
 
 script:
   - shellcheck laptop.local
+  - sh laptop.local
 
 notifications:
   email: false
