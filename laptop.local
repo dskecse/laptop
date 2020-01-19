@@ -89,8 +89,9 @@ cask 'firefox'
 cask 'chromedriver'
 
 cask 'ngrok'
-cask 'dropbox'
+cask 'wireshark'
 
+cask 'dropbox'
 cask 'skype'
 cask 'docker'
 cask 'tunnelbear'
