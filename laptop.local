@@ -95,6 +95,7 @@ cask 'dropbox'
 cask 'skype'
 cask 'docker'
 cask 'tunnelbear'
+cask 'cyberduck' # upload media to S3 buckets
 
 brew 'dnsmasq', restart_service: true
 
