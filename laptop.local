@@ -138,6 +138,8 @@ cask 'handbrake'
 # Make sure to download and install it manually
 # https://github.com/thoughtbot/capybara-webkit/issues/1072#issuecomment-430311949
 
+brew 'postgis'
+
 cask 'postico'
 
 cask 'fliqlo'
