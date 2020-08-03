@@ -116,7 +116,6 @@ tap 'getsentry/tools'
 brew 'sentry-cli'
 
 brew 'gpg2'
-brew 'gpg-agent'
 
 # To get rid of "gpg: problem with the agent: Inappropriate ioctl for device"
 # http://support.gpgtools.org/discussions/problems/42548-passphrase-window-not-shown
