@@ -76,6 +76,7 @@ brew 'cabal-install'
 brew 'elm'
 
 brew 'leiningen'
+tap 'clojure/tools'
 brew 'clojure'
 
 cask 'julia'
