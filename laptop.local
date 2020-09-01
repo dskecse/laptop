@@ -41,7 +41,10 @@ xcode-select --install
 brew bundle --file=- <<EOF
 brew 'yarn'
 
-cask 'kindlegen'
+# Kindle Previewer replaces KindleGen for converting and bulk validation of eBooks on the CLI
+# https://github.com/Homebrew/homebrew-cask/pull/88179
+# https://www.amazon.com/gp/feature.html?docId=1000765211
+# cask 'kindle-previewer'
 
 brew 'erlang'
 brew 'elixir'
