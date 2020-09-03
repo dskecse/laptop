@@ -18,7 +18,7 @@ brew 'graphviz'
 brew 'tree'
 brew 'ipcalc'
 brew 'nmap'
-brew 'tig', args: ['with-docs']
+brew 'tig'
 brew 'dos2unix'
 brew 'screenfetch'
 brew 'httpie'
