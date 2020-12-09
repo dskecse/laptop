@@ -54,7 +54,7 @@ cask 'iterm2'
 
 brew 'go'
 
-cask 'java'
+brew 'java11'
 brew 'elasticsearch', restart_service: true
 
 brew 'maven'
