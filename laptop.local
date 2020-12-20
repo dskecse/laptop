@@ -90,7 +90,8 @@ cask 'atom'
 tap 'unused-code/formulae'
 brew 'unused'
 
-brew 'mongodb'
+tap 'mongodb/brew'
+brew 'mongodb-community'
 
 cask 'firefox'
 cask 'chromedriver'
