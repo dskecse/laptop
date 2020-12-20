@@ -162,7 +162,7 @@ gem_install_or_update 'powder'
 sudo pip install lxml
 
 if [[ ! -d "$HOME/.vim/" ]]; then
-  git clone git@ssh.github.com:dskecse/dotvim.git ~/.vim
+  git clone https://github.com/dskecse/dotvim.git ~/.vim
   ln -sf ~/.vim/vimrc ~/.vimrc
 fi
 
