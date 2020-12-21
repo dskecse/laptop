@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dskecse/laptop.svg?branch=master)](https://travis-ci.org/dskecse/laptop)
+[![Build Status](https://travis-ci.com/dskecse/laptop.svg?branch=master)](https://travis-ci.com/dskecse/laptop)
 
 ## Setup
 
