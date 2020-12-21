@@ -2,9 +2,14 @@ os: osx
 osx_image: xcode12.2
 addons:
   homebrew:
+    update: true
     packages:
     - shellcheck
-    update: true
+cache:
+  directories:
+    - $HOME/Library/Caches/Homebrew
+before_cache:
+  - brew cleanup
 
 language: sh
 
