@@ -2,7 +2,7 @@
 
 brew tap homebrew/bundle
 
-if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
+if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
 
@@ -161,16 +161,16 @@ gem_install_or_update 'powder'
 # http://stackoverflow.com/questions/21004960/no-module-named-lxml-html-while-running-python-script-on-fedora
 sudo pip install lxml
 
-if [[ ! -d "$HOME/.vim/" ]]; then
+if [ ! -d "$HOME/.vim/" ]; then
   git clone https://github.com/dskecse/dotvim.git ~/.vim
   ln -sf ~/.vim/vimrc ~/.vimrc
 fi
 
-if [[ ! -d "$HOME/.aws" ]]; then
+if [ ! -d "$HOME/.aws" ]; then
   aws configure
 fi
 
-if [[ ! -f "$HOME/.gem/credentials" ]]; then
+if [ ! -f "$HOME/.gem/credentials" ]; then
   curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
   chmod 0600 ~/.gem/credentials
 fi
