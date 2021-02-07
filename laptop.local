@@ -69,10 +69,6 @@ cask 'mozart2'
 # TODO: set up python development environment
 # FYI: python@2 removed by me on Aug 3, 2020
 brew 'libsass'
-# It looks like the protobuf pip package conflicts with webapp2 resulting in
-#   ImportError: No module named webapp2
-# https://groups.google.com/forum/#!topic/google-appengine/LucknWk8iaQ
-cask 'googleappengine'
 cask 'google-cloud-sdk'
 
 brew 'ghc'
