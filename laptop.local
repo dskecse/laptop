@@ -91,7 +91,8 @@ tap 'mongodb/brew'
 brew 'mongodb-community'
 
 cask 'firefox'
-cask 'chromium'
+tap 'mtslzr/marmaduke-chromium'
+cask 'marmaduke-chromium'
 cask 'chromedriver'
 
 cask 'ngrok'
