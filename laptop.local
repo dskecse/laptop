@@ -7,8 +7,6 @@ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
 fi
 
 brew bundle --file=- <<EOF
-brew 'fish'
-
 brew 'awscli'
 brew 'duff'
 brew 'jq'
