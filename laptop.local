@@ -3,7 +3,7 @@
 brew tap homebrew/bundle
 
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
-  curl -L http://install.ohmyz.sh | sh
+  curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | xargs sh -c
 fi
 
 brew bundle --file=- <<EOF
