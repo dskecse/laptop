@@ -11,16 +11,12 @@ brew 'fish'
 
 brew 'awscli'
 brew 'duff'
-brew 'exercism'
 brew 'jq'
 brew 'gist'
 brew 'graphviz'
-brew 'tree'
-brew 'ipcalc'
 brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
-brew 'screenfetch'
 brew 'httpie'
 
 # http://stackoverflow.com/questions/9134423/os-x-lion-attempting-nokogiri-install-libxml2-is-missing
@@ -46,9 +42,6 @@ brew 'yarn'
 # https://www.amazon.com/gp/feature.html?docId=1000765211
 # cask 'kindle-previewer'
 
-brew 'erlang'
-brew 'elixir'
-
 tap 'homebrew/cask-versions'
 cask 'iterm2'
 
@@ -57,10 +50,6 @@ brew 'go'
 brew 'java11'
 brew 'elasticsearch', restart_service: true
 brew 'kibana'
-
-brew 'maven'
-brew 'gradle'
-cask 'eclipse-java'
 
 cask 'emacs'
 tap 'dskecse/tap'
@@ -74,15 +63,9 @@ cask 'google-cloud-sdk'
 brew 'ghc'
 brew 'cabal-install'
 
-brew 'elm'
-
 brew 'leiningen'
 tap 'clojure/tools'
 brew 'clojure'
-
-cask 'julia'
-# Juno IDE is built on Atom https://junolab.org/
-cask 'atom'
 
 tap 'unused-code/formulae'
 brew 'unused'
@@ -104,9 +87,6 @@ cask 'docker'
 cask 'tunnelbear'
 cask 'cyberduck' # upload media to S3 buckets
 
-brew 'dnsmasq', restart_service: true
-
-brew 'pow'
 # FYI: Requires tmux.
 # https://evilmartians.com/chronicles/introducing-overmind-and-hivemind
 brew 'overmind'
@@ -116,9 +96,6 @@ brew 'watch'
 # Get set for native app development
 brew 'cocoapods'
 brew 'watchman'
-
-tap 'getsentry/tools'
-brew 'sentry-cli'
 
 brew 'gpg2'
 
