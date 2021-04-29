@@ -72,8 +72,6 @@ tap 'mongodb/brew'
 brew 'mongodb-community'
 
 cask 'firefox'
-tap 'mtslzr/marmaduke-chromium'
-cask 'marmaduke-chromium'
 cask 'chromedriver'
 
 cask 'ngrok'
