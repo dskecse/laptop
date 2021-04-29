@@ -48,6 +48,7 @@ brew 'go'
 brew 'java11'
 brew 'elasticsearch', restart_service: true
 brew 'kibana'
+brew 'kafka'
 
 cask 'emacs'
 tap 'dskecse/tap'
