@@ -43,6 +43,8 @@ brew 'yarn'
 tap 'homebrew/cask-versions'
 cask 'iterm2'
 
+brew 'elixir'
+
 brew 'go'
 
 brew 'java11'
