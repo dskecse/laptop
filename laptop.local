@@ -130,8 +130,6 @@ EOF
 # To get rid of "error: could not run gpg." w/ git-commit
 ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
 
-gem_install_or_update 'powder'
-
 # http://stackoverflow.com/questions/21004960/no-module-named-lxml-html-while-running-python-script-on-fedora
 sudo pip install lxml
 
