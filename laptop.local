@@ -49,6 +49,7 @@ brew 'java'
 brew 'elasticsearch', restart_service: true
 brew 'kibana'
 brew 'kafka'
+brew 'kafkacat'
 
 cask 'emacs'
 tap 'dskecse/tap'
