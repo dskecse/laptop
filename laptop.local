@@ -85,6 +85,7 @@ cask 'skype'
 cask 'docker'
 brew 'kubernetes-cli'
 brew 'helm'
+brew 'minikube'
 cask 'tunnelbear'
 cask 'cyberduck' # upload media to S3 buckets
 
