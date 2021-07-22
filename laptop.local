@@ -46,8 +46,11 @@ cask 'iterm2'
 brew 'go'
 
 brew 'java'
-brew 'elasticsearch', restart_service: true
-brew 'kibana'
+
+tap 'elastic/tap'
+brew 'elasticsearch-full'
+brew 'kibana-full'
+
 brew 'kafka'
 brew 'kafkacat'
 
