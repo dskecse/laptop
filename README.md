@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/dskecse/laptop.svg?branch=master)](https://travis-ci.com/dskecse/laptop)
+[![Build Status](https://github.com/dskecse/laptop/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/dskecse/laptop)
 
 ## Setup
 

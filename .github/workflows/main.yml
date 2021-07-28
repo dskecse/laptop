@@ -1,0 +1,16 @@
+name: Test Build on macOS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: brew update
+      - run: brew install shellcheck
+      - run: shellcheck laptop.local
+      - run: sh laptop.local
