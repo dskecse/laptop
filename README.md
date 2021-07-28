@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/dskecse/laptop/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/dskecse/laptop)
+[![build](https://github.com/dskecse/laptop/actions/workflows/main.yml/badge.svg)](https://github.com/dskecse/laptop/actions/workflows/main.yml)
 
 ## Setup
 
