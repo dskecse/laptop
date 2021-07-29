@@ -99,8 +99,8 @@ brew 'overmind'
 brew 'watch'
 
 # Get set for native app development
-brew 'cocoapods'
-brew 'watchman'
+# brew 'cocoapods'
+# brew 'watchman'
 
 brew 'gpg2'
 
