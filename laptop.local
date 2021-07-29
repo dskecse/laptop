@@ -150,6 +150,8 @@ if [ ! -d "$HOME/.aws" ]; then
 fi
 
 if [ ! -f "$HOME/.gem/credentials" ]; then
+  mkdir -p ~/.gem
+
   curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
   chmod 0600 ~/.gem/credentials
 fi
