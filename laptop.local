@@ -30,7 +30,7 @@ EOF
 # In the past it was necessary to install Apple's XCode IDE to get
 # basic tools like GCC, Git and Subversion on your machine, but
 # nowadays there is a slim solution by just installing the command line tools
-xcode-select --install
+# xcode-select --install
 
 brew bundle --file=- <<EOF
 brew 'yarn'
