@@ -52,7 +52,6 @@ brew 'elasticsearch-full'
 brew 'kibana-full'
 
 brew 'kafka'
-brew 'kafkacat'
 
 cask 'emacs'
 tap 'dskecse/tap'
