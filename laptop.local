@@ -83,7 +83,6 @@ cask 'ngrok'
 cask 'wireshark'
 
 cask 'dropbox'
-cask 'skype'
 cask 'docker'
 brew 'kubernetes-cli'
 brew 'helm'
