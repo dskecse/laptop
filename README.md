@@ -14,7 +14,7 @@ Add a symlink to `laptop.local` with customizations before running the main scri
 
 ### Install
 
-Use [thoughtbot's laptop script](https://github.com/thoughtbot/laptop) to set up
+Use [laptop script](https://github.com/dskecse/laptop) to set up
 a macOS development environment:
 
-    bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/blob/7b18ef65b9a428cac03da3398bb3d83ce9a4faaf/mac) 2>&1 | tee ~/laptop.log
+    bash <(curl -s https://raw.githubusercontent.com/dskecse/laptop/main/mac) 2>&1 | tee ~/laptop.log
