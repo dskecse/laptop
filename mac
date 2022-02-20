@@ -1,10 +1,10 @@
 #!/bin/sh
 
 fancy_echo() {
-  local fmt="$1"; shift
+  _fmt="$1"; shift
 
   # shellcheck disable=SC2059
-  printf "\\n$fmt\\n" "$@"
+  printf "\\n$_fmt\\n" "$@"
 }
 
 # shellcheck disable=SC2154
@@ -17,7 +17,6 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 update_shell() {
-  local shell_path;
   shell_path="$(command -v zsh)"
 
   fancy_echo "Changing your shell to zsh ..."
@@ -138,5 +137,6 @@ number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
 if [ -f "$HOME/.laptop.local" ]; then
+  # shellcheck source=laptop.local
   . "$HOME/.laptop.local"
 fi
