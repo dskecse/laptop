@@ -118,22 +118,12 @@ brew 'lame'
 brew 'ffmpeg'
 cask 'handbrake'
 
-# capybara-webkit gem depends on a Webkit implementation from Qt
-# https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
-# brew 'qt@5.5'
-# FYI: qt@5.5 has been dropped from Homebrew
-# https://github.com/thoughtbot/capybara-webkit/issues/1072#issuecomment-425716220
-# Make sure to download and install it manually
-# https://github.com/thoughtbot/capybara-webkit/issues/1072#issuecomment-430311949
-
 brew 'postgis'
 
 cask 'postico'
 
 cask 'fliqlo'
 EOF
-
-# brew link --force qt55
 
 # To get rid of "error: could not run gpg." w/ git-commit
 ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg

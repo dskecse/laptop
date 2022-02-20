@@ -4,9 +4,10 @@ fancy_echo() {
   local fmt="$1"; shift
 
   # shellcheck disable=SC2059
-  printf "\n$fmt\n" "$@"
+  printf "\\n$fmt\\n" "$@"
 }
 
+# shellcheck disable=SC2154
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
 set -e
@@ -15,65 +16,33 @@ if [ ! -f "$HOME/.zshrc" ]; then
   touch "$HOME/.zshrc"
 fi
 
+update_shell() {
+  local shell_path;
+  shell_path="$(command -v zsh)"
+
+  fancy_echo "Changing your shell to zsh ..."
+  if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+    fancy_echo "Adding '$shell_path' to /etc/shells"
+    sudo sh -c "echo $shell_path >> /etc/shells"
+  fi
+  sudo chsh -s "$shell_path" "$USER"
+}
+
 case "$SHELL" in
-  */zsh) : ;;
+  */zsh)
+    if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
+      update_shell
+    fi
+    ;;
   *)
-    fancy_echo "Changing your shell to zsh ..."
-      chsh -s "$(which zsh)"
+    update_shell
     ;;
 esac
 
-brew_install_or_upgrade() {
-  if brew_is_installed "$1"; then
-    if brew_is_upgradable "$1"; then
-      fancy_echo "Upgrading %s ..." "$1"
-      brew upgrade "$@"
-    else
-      fancy_echo "Already using the latest version of %s. Skipping ..." "$1"
-    fi
-  else
-    fancy_echo "Installing %s ..." "$1"
-    brew install "$@"
-  fi
-}
-
-brew_is_installed() {
-  local name="$(brew_expand_alias "$1")"
-
-  brew list -1 | grep -Fqx "$name"
-}
-
-brew_is_upgradable() {
-  local name="$(brew_expand_alias "$1")"
-
-  ! brew outdated --quiet "$name" >/dev/null
-}
-
-brew_expand_alias() {
-  brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
-}
-
-brew_launchctl_restart() {
-  local name="$(brew_expand_alias "$1")"
-  local domain="homebrew.mxcl.$name"
-  local plist="$domain.plist"
-
-  fancy_echo "Restarting %s ..." "$1"
-  mkdir -p "$HOME/Library/LaunchAgents"
-  ln -sfv "/usr/local/opt/$name/$plist" "$HOME/Library/LaunchAgents"
-
-  if launchctl list | grep -Fq "$domain"; then
-    launchctl unload "$HOME/Library/LaunchAgents/$plist" >/dev/null
-  fi
-  launchctl load "$HOME/Library/LaunchAgents/$plist" >/dev/null
-}
-
 gem_install_or_update() {
   if gem list "$1" --installed > /dev/null; then
-    fancy_echo "Updating %s ..." "$1"
     gem update "$@"
   else
-    fancy_echo "Installing %s ..." "$1"
     gem install "$@"
   fi
 }
@@ -88,23 +57,46 @@ if ! command -v brew >/dev/null; then
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
-brew update
+brew update --force
 
-brew_install_or_upgrade 'git'
-brew_install_or_upgrade 'postgres'
-brew_launchctl_restart 'postgresql'
-brew_install_or_upgrade 'redis'
-brew_launchctl_restart 'redis'
-brew_install_or_upgrade 'the_silver_searcher'
-brew_install_or_upgrade 'vim'
-brew_install_or_upgrade 'ctags' # index files for vim tab completion of methods, classes, variables
-brew_install_or_upgrade 'tmux'
-brew_install_or_upgrade 'reattach-to-user-namespace' # for copy-paste and RubyMotion compatibility with tmux
-brew_install_or_upgrade 'imagemagick' # to crop and resize images
-brew_install_or_upgrade 'watch' # to execute a program periodically and show the output, can be ignored
-brew_install_or_upgrade 'gh'
-brew_install_or_upgrade 'node'
-brew_install_or_upgrade 'yarn'
+brew bundle --file=- <<EOF
+tap "thoughtbot/formulae"
+# tap "homebrew/services"
+tap "universal-ctags/universal-ctags"
+tap "heroku/brew"
+
+# Unix
+brew "universal-ctags", args: ["HEAD"] # index files for vim tab completion of methods, classes, variables
+brew "git"
+# system dependencies for Ruby builds
+brew "openssl"
+brew "rcm"
+brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
+brew "the_silver_searcher"
+brew "tmux"
+brew "vim"
+brew "watch" # to execute a program periodically and show the output, can be ignored
+brew "zsh"
+
+# Heroku
+brew "heroku/brew/heroku" # heroku cli + foreman
+
+# GitHub
+brew "hub"
+
+# Image manipulation
+brew "imagemagick" # to crop and resize images
+
+# Programming languages and package managers
+brew "libyaml" # should come after OpenSSL
+brew "coreutils"
+brew "node"
+brew "yarn"
+
+# Databases
+brew "postgres", restart_service: :changed
+brew "redis", restart_service: :changed
+EOF
 
 if [ ! -d "$HOME/.rbenv" ]; then
   fancy_echo "Installing rbenv ..."
@@ -128,33 +120,23 @@ else
   git clone https://github.com/sstephenson/ruby-build.git "$ruby_build_path"
 fi
 
-# system dependencies for Ruby builds
-brew_install_or_upgrade 'openssl'
-brew unlink openssl && brew link openssl --force
-brew_install_or_upgrade 'libyaml'
+fancy_echo "Configuring Ruby ..."
+find_latest_ruby() {
+  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+}
 
-ruby_version=3.1.0
+ruby_version="$(find_latest_ruby)"
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
-  rbenv install -s "$ruby_version"
+  # use constant from dotfiles exports
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" rbenv install -s "$ruby_version"
 fi
 
 rbenv global "$ruby_version"
-
 gem update --system
-
 gem_install_or_update 'bundler'
-
-fancy_echo "Configuring Bundler ..."
-  number_of_cores=$(sysctl -n hw.ncpu)
-  bundle config --global jobs $((number_of_cores - 1))
-
-brew_install_or_upgrade 'heroku-toolbelt' # heroku cli + foreman
-
-if ! command -v rcup >/dev/null; then
-  brew tap thoughtbot/formulae
-  brew_install_or_upgrade 'rcm'
-fi
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
 
 if [ -f "$HOME/.laptop.local" ]; then
   . "$HOME/.laptop.local"
