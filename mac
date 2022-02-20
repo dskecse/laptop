@@ -99,12 +99,9 @@ brew "redis", restart_service: :changed
 EOF
 
 brew install chruby
-# Add to zshrc
 HOMEBREW_PREFIX="/usr/local"
 # shellcheck disable=SC1091
 . "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-# source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
-# RUBIES+=("$HOME/.rbenv/versions/*")
 
 if [ ! -d "$HOME/.rubies" ]; then
   brew install ruby-build
@@ -121,6 +118,7 @@ if [ ! -d "$HOME/.rubies" ]; then
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
+  chruby
   chruby "$ruby_version" # set default Ruby
 fi
 
