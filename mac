@@ -103,14 +103,8 @@ brew_install_or_upgrade 'reattach-to-user-namespace' # for copy-paste and RubyMo
 brew_install_or_upgrade 'imagemagick' # to crop and resize images
 brew_install_or_upgrade 'watch' # to execute a program periodically and show the output, can be ignored
 brew_install_or_upgrade 'gh'
-
-brew_install_or_upgrade 'n'
-
-node_version="$(n --latest)"
-n latest
-
-fancy_echo "Setting $node_version as the default global Node version ..."
-# nvm alias default "$node_version"
+brew_install_or_upgrade 'node'
+brew_install_or_upgrade 'yarn'
 
 if [ ! -d "$HOME/.rbenv" ]; then
   fancy_echo "Installing rbenv ..."
