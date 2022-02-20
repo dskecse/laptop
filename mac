@@ -117,7 +117,9 @@ if [ ! -d "$HOME/.rubies" ]; then
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
-  chruby "$ruby_version" # set default Ruby
+  # After installing new Rubies, one must restart the shell before chruby can recognize them.
+  # https://github.com/postmodern/chruby#rubies-1
+  # chruby "$ruby_version" # set default Ruby
 fi
 
 gem update --system
