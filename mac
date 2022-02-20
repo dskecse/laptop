@@ -240,7 +240,7 @@ brew 'lame'
 brew 'ffmpeg'
 cask 'handbrake'
 
-brew 'postgis'
+# brew 'postgis'
 
 cask 'postico'
 
@@ -256,7 +256,7 @@ if [ ! -d "$HOME/.vim/" ]; then
 fi
 
 if [ ! -d "$HOME/.aws" ]; then
-  aws configure
+  # aws configure
   # AWS Access Key ID [None]:
   # EOF when reading a line
 fi
