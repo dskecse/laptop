@@ -255,11 +255,11 @@ if [ ! -d "$HOME/.vim/" ]; then
   ln -sf ~/.vim/vimrc ~/.vimrc
 fi
 
-if [ ! -d "$HOME/.aws" ]; then
+# if [ ! -d "$HOME/.aws" ]; then
   # aws configure
   # AWS Access Key ID [None]:
   # EOF when reading a line
-fi
+# fi
 
 if [ ! -f "$HOME/.gem/credentials" ]; then
   mkdir -p ~/.gem
