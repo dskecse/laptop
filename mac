@@ -121,7 +121,7 @@ if [ ! -d "$HOME/.rubies" ]; then
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
-  chruby "ruby-$ruby_version" # set default Ruby
+  chruby "$ruby_version" # set default Ruby
 fi
 
 gem update --system
