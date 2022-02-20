@@ -101,7 +101,8 @@ EOF
 brew install chruby
 # Add to zshrc
 HOMEBREW_PREFIX="/usr/local"
-source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+# shellcheck disable=SC1091
+. "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
 # RUBIES+=($HOME/.rbenv/versions/*) # Add to zshrc only
 # source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
 
