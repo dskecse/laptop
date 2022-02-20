@@ -51,7 +51,6 @@ if ! command -v brew >/dev/null; then
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # append_to_zshrc 'export PATH="/usr/local/bin:$PATH"' 1
     export PATH="/usr/local/bin:$PATH"
 fi
 
@@ -118,7 +117,6 @@ if [ ! -d "$HOME/.rubies" ]; then
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
-  chruby
   chruby "$ruby_version" # set default Ruby
 fi
 
