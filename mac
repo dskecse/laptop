@@ -59,7 +59,7 @@ brew update --force
 
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
-# tap "homebrew/services"
+tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 tap "heroku/brew"
 
@@ -95,6 +95,7 @@ brew "yarn"
 # Databases
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
+brew "mysql", restart_service: :changed
 EOF
 
 brew install chruby
@@ -126,7 +127,7 @@ gem update --system
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
-brew tap homebrew/bundle
+# brew tap homebrew/bundle
 
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -152,10 +153,6 @@ brew 'httpie'
 # http://www.nokogiri.org/tutorials/installing_nokogiri.html
 brew 'libxml2'
 brew 'libxslt'
-
-tap 'homebrew/services'
-
-brew 'mysql', restart_service: true
 
 # Kindle Previewer replaces KindleGen for converting and bulk validation of eBooks on the CLI
 # https://github.com/Homebrew/homebrew-cask/pull/88179
