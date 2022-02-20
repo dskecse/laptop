@@ -17,4 +17,4 @@ Add a symlink to `laptop.local` with customizations before running the main scri
 Use [laptop script](https://github.com/dskecse/laptop) to set up
 a macOS development environment:
 
-    bash <(curl -s https://raw.githubusercontent.com/dskecse/laptop/main/mac) 2>&1 | tee ~/laptop.log
+    sh <(curl -s https://raw.githubusercontent.com/dskecse/laptop/main/mac) 2>&1 | tee ~/laptop.log
