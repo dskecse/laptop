@@ -82,7 +82,7 @@ brew "zsh"
 brew "heroku/brew/heroku" # heroku cli + foreman
 
 # GitHub
-brew "hub"
+brew "gh"
 
 # Image manipulation
 brew "imagemagick" # to crop and resize images
