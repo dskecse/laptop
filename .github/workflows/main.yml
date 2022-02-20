@@ -12,6 +12,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: brew update
       - run: brew install shellcheck
-      - run: shellcheck mac laptop.local
+      - run: shellcheck mac
       - run: sh mac
-      - run: sh laptop.local

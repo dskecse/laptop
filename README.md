@@ -6,15 +6,8 @@ Laptop is a script for setting up macOS dev environment.
 
 ## Setup
 
-### Prerequisites
+Set up macOS dev environment by running the following command:
 
-Add a symlink to `laptop.local` with customizations before running the main script:
-
-    ln -s ~/.laptop/laptop.local ~/.laptop.local
-
-### Install
-
-Use [laptop script](https://github.com/dskecse/laptop) to set up
-a macOS development environment:
-
-    sh <(curl -s https://raw.githubusercontent.com/dskecse/laptop/main/mac) 2>&1 | tee ~/laptop.log
+```sh
+sh <(curl -s https://raw.githubusercontent.com/dskecse/laptop/main/mac) 2>&1 | tee ~/laptop.log
+```
