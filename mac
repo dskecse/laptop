@@ -103,42 +103,27 @@ brew install chruby
 HOMEBREW_PREFIX="/usr/local"
 # shellcheck disable=SC1091
 . "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-# RUBIES+=($HOME/.rbenv/versions/*) # Add to zshrc only
 # source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+# RUBIES+=("$HOME/.rbenv/versions/*")
 
-if [ ! -d "$HOME/.rbenv" ]; then
-  fancy_echo "Installing rbenv ..."
-    git clone https://github.com/sstephenson/rbenv.git "$HOME/.rbenv"
+if [ ! -d "$HOME/.rubies" ]; then
+  brew install ruby-build
+  ruby-build --definitions
 
-    # FYI: All this is done by the oh-my-zsh rbenv plugin.
-    # append_to_zshrc 'export PATH="$HOME/.rbenv/bin:$PATH"'
-    # append_to_zshrc 'eval "$(rbenv init - zsh --no-rehash)"' 1
+  fancy_echo "Configuring Ruby ..."
+  find_latest_ruby() {
+    ruby-build -l | grep -v - | tail -1 | sed -e 's/^ *//'
+  }
 
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    # eval "$(rbenv init - zsh)"
+  ruby_version="$(find_latest_ruby)"
+  if ! chruby | grep -Fq "$ruby_version"; then
+    RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" \
+      ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
+  fi
+
+  chruby "ruby-$ruby_version" # set default Ruby
 fi
 
-brew install ruby-build
-ruby-build --definitions
-
-fancy_echo "Configuring Ruby ..."
-find_latest_ruby() {
-  ruby-build -l | grep -v - | tail -1 | sed -e 's/^ *//'
-}
-
-ruby_version="$(find_latest_ruby)"
-# if ! chruby | grep -Fq "$ruby_version"; then
-#   # use constant from dotfiles exports
-#   RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
-# fi
-
-if ! rbenv versions | grep -Fq "$ruby_version"; then
-  # use constant from dotfiles exports
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" rbenv install -s "$ruby_version"
-fi
-
-# chruby "ruby-$ruby_version" # set default Ruby
-rbenv global "$ruby_version"
 gem update --system
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
