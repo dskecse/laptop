@@ -89,6 +89,7 @@ brew "imagemagick" # to crop and resize images
 # Programming languages and package managers
 brew "libyaml" # should come after OpenSSL
 brew "coreutils"
+brew "readline"
 brew "node"
 brew "yarn"
 
@@ -96,6 +97,13 @@ brew "yarn"
 brew "postgres", restart_service: :changed
 brew "redis", restart_service: :changed
 EOF
+
+brew install chruby
+# Add to zshrc
+HOMEBREW_PREFIX="/usr/local"
+source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+# RUBIES+=($HOME/.rbenv/versions/*) # Add to zshrc only
+# source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
 
 if [ ! -d "$HOME/.rbenv" ]; then
   fancy_echo "Installing rbenv ..."
@@ -109,28 +117,26 @@ if [ ! -d "$HOME/.rbenv" ]; then
     # eval "$(rbenv init - zsh)"
 fi
 
-ruby_build_path="$HOME/.rbenv/plugins/ruby-build"
-
-if [ -d "$ruby_build_path" ]; then
-  fancy_echo "Updating to latest ruby-build..."
-  cd "$ruby_build_path" && git pull && cd -
-else
-  fancy_echo "Installing ruby-build..."
-  git clone https://github.com/sstephenson/ruby-build.git "$ruby_build_path"
-fi
+brew install ruby-build
+ruby-build --definitions
 
 fancy_echo "Configuring Ruby ..."
 find_latest_ruby() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+  ruby-build -l | grep -v - | tail -1 | sed -e 's/^ *//'
 }
 
 ruby_version="$(find_latest_ruby)"
+# if ! chruby | grep -Fq "$ruby_version"; then
+#   # use constant from dotfiles exports
+#   RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
+# fi
 
 if ! rbenv versions | grep -Fq "$ruby_version"; then
   # use constant from dotfiles exports
   RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" rbenv install -s "$ruby_version"
 fi
 
+# chruby "ruby-$ruby_version" # set default Ruby
 rbenv global "$ruby_version"
 gem update --system
 number_of_cores=$(sysctl -n hw.ncpu)
