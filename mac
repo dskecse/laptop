@@ -52,11 +52,10 @@ brew update --force
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
-tap "universal-ctags/universal-ctags"
 tap "heroku/brew"
 
 # Unix
-brew "universal-ctags", args: ["HEAD"] # index files for vim tab completion of methods, classes, variables
+brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 brew "git"
 # system dependencies for Ruby builds
 brew "openssl"
