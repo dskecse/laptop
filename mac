@@ -210,8 +210,6 @@ cask 'cyberduck' # upload media to S3 buckets
 # https://evilmartians.com/chronicles/introducing-overmind-and-hivemind
 brew 'overmind'
 
-brew 'watch'
-
 # Get set for native app development
 # brew 'cocoapods'
 # brew 'watchman'
