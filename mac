@@ -145,11 +145,6 @@ brew 'httpie'
 brew 'libxml2'
 brew 'libxslt'
 
-# Kindle Previewer replaces KindleGen for converting and bulk validation of eBooks on the CLI
-# https://github.com/Homebrew/homebrew-cask/pull/88179
-# https://www.amazon.com/gp/feature.html?docId=1000765211
-# cask 'kindle-previewer'
-
 tap 'homebrew/cask-versions'
 cask 'iterm2'
 
