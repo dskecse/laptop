@@ -166,7 +166,7 @@ tap 'dskecse/tap'
 cask 'mozart2'
 brew 'elixir@1.9'
 # Specific version due to client-server compatibility issue
-brew 'kubernetes-cli@1.21'
+brew 'kubernetes-cli@1.22'
 
 # TODO: set up python development environment
 # FYI: python@2 removed by me on Aug 3, 2020
