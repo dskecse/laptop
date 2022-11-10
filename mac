@@ -138,7 +138,7 @@ brew 'graphviz'
 brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
-brew 'httpie'
+# brew 'httpie'
 
 # http://stackoverflow.com/questions/9134423/os-x-lion-attempting-nokogiri-install-libxml2-is-missing
 # http://www.nokogiri.org/tutorials/installing_nokogiri.html
