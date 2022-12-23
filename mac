@@ -61,7 +61,7 @@ brew "git"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
-brew "python@3.10", link: true # install the_silver_searcher dep separately to be able to link it
+brew "python@3.10", link: true, args: ["overwrite"] # install the_silver_searcher dep separately to be able to link it
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
