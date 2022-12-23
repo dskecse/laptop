@@ -134,7 +134,7 @@ brew bundle --file=- <<EOF
 brew 'duff'
 brew 'jq'
 brew 'gist'
-brew 'graphviz'
+# brew 'graphviz'
 brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
