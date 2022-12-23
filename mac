@@ -159,7 +159,7 @@ tap 'elastic/tap'
 brew 'elasticsearch-full'
 brew 'kibana-full'
 
-brew 'kafka'
+# brew 'kafka'
 
 cask 'emacs'
 tap 'dskecse/tap'
