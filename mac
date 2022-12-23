@@ -61,7 +61,7 @@ brew "git"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
-brew "the_silver_searcher"
+brew "the_silver_searcher", conflicts_with: ["python@3.11"]
 brew "tmux"
 brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
