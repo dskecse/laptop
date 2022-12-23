@@ -74,7 +74,7 @@ brew "heroku/brew/heroku" # heroku cli + foreman
 brew "gh"
 
 # Image manipulation
-brew "imagemagick" # to crop and resize images
+# brew "imagemagick" # to crop and resize images
 
 # Programming languages and package managers
 brew "libyaml" # should come after OpenSSL
