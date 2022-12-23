@@ -63,7 +63,7 @@ brew "rcm"
 brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
 # brew "the_silver_searcher"
 brew "tmux"
-brew "python@3.10", link: true, conflicts_with: ["python@3.11"]
+brew "python@3.10", link: false
 brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
 brew "zsh"
