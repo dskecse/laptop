@@ -49,6 +49,8 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
+brew unlink -dv python@3.11
+
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
