@@ -49,6 +49,8 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
+brew install --overwrite python@3.10
+
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
