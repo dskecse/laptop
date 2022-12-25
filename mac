@@ -116,6 +116,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   # chruby "$ruby_version" # set default Ruby
 fi
 
+gem install bundler
 gem update --system
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
