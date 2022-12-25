@@ -63,9 +63,9 @@ brew "git"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
-# brew "the_silver_searcher"
+brew "the_silver_searcher"
 brew "tmux"
-# brew "vim"
+brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
 brew "zsh"
 
@@ -76,7 +76,7 @@ brew "heroku/brew/heroku" # heroku cli + foreman
 brew "gh"
 
 # Image manipulation
-# brew "imagemagick" # to crop and resize images
+brew "imagemagick" # to crop and resize images
 
 # Programming languages and package managers
 brew "libyaml" # should come after OpenSSL
@@ -88,7 +88,7 @@ brew "yarn"
 # Databases
 brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
-# brew "mysql", restart_service: :changed
+brew "mysql", restart_service: :changed
 EOF
 
 brew install chruby
@@ -136,7 +136,7 @@ brew bundle --file=- <<EOF
 brew 'duff'
 brew 'jq'
 brew 'gist'
-# brew 'graphviz'
+brew 'graphviz'
 brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
@@ -161,7 +161,7 @@ tap 'elastic/tap'
 brew 'elasticsearch-full'
 brew 'kibana-full'
 
-# brew 'kafka'
+brew 'kafka'
 
 cask 'emacs'
 tap 'dskecse/tap'
