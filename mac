@@ -176,7 +176,7 @@ brew 'kubernetes-cli@1.25'
 # TODO: set up python development environment
 brew 'libsass'
 cask 'google-cloud-sdk'
-brew 'jupyterlab'
+# brew 'jupyterlab'
 
 brew 'ghc'
 brew 'cabal-install'
