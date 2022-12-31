@@ -49,6 +49,7 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
+brew upgrade python@3.11
 brew install --overwrite python@3.10
 
 brew bundle --file=- <<EOF
