@@ -136,6 +136,7 @@ brew bundle --file=- <<EOF
 # brew 'awscli' # fails due to not being able to link properly
 brew 'duff'
 brew 'jq'
+brew 'yq'
 brew 'gist'
 brew 'graphviz'
 brew 'nmap'
