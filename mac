@@ -170,7 +170,7 @@ brew 'kafka'
 cask 'emacs'
 tap 'dskecse/tap'
 cask 'mozart2'
-brew 'elixir@1.11'
+brew 'elixir@1.13'
 # Specific version due to client-server compatibility issue
 brew 'kubernetes-cli@1.25'
 brew 'kind'
