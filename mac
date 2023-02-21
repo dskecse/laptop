@@ -234,7 +234,7 @@ cask 'handbrake'
 
 cask 'postico'
 
-cask 'fliqlo'
+# cask 'fliqlo'
 EOF
 
 # To get rid of "error: could not run gpg." w/ git-commit
