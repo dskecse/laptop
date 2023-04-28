@@ -142,7 +142,7 @@ brew 'graphviz'
 brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
-# brew 'httpie'
+brew 'httpie'
 
 brew 'wasmtime'
 
