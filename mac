@@ -54,7 +54,6 @@ brew install --overwrite python@3.10
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
-tap "heroku/brew"
 
 # Unix
 brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
@@ -68,9 +67,6 @@ brew "tmux"
 # brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
 brew "zsh"
-
-# Heroku
-brew "heroku/brew/heroku" # heroku cli + foreman
 
 # GitHub
 brew "gh"
