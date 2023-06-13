@@ -49,7 +49,8 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
-brew install --overwrite python@3.10
+# No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
+brew install --overwrite python3
 
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
