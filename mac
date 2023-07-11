@@ -167,7 +167,7 @@ brew 'kafka'
 # cask 'emacs'
 tap 'dskecse/tap'
 # cask 'mozart2'
-brew 'elixir@1.13'
+brew 'elixir@1.14'
 
 # TODO: set up python development environment
 brew 'libsass'
