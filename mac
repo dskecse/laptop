@@ -184,8 +184,8 @@ brew 'clojure'
 tap 'unused-code/formulae'
 brew 'unused'
 
-tap 'mongodb/brew'
-brew 'mongodb-community'
+# tap 'mongodb/brew'
+# brew 'mongodb-community'
 
 cask 'firefox'
 cask 'chromedriver'
