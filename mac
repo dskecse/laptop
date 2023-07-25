@@ -159,8 +159,9 @@ cask 'iterm2'
 brew 'java'
 
 tap 'elastic/tap'
-brew 'elasticsearch-full'
-brew 'kibana-full'
+# TODO: Uncomment once https://github.com/elastic/homebrew-tap/issues/146 is addressed
+# brew 'elasticsearch-full'
+# brew 'kibana-full'
 
 brew 'kafka'
 
