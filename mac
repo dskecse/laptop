@@ -57,7 +57,6 @@ tap "thoughtbot/formulae"
 tap "homebrew/services"
 
 # Unix
-brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 brew "git"
 # system dependencies for Ruby builds
 brew "openssl"
@@ -169,6 +168,9 @@ brew 'kafka'
 tap 'dskecse/tap'
 # cask 'mozart2'
 brew 'elixir@1.14'
+
+# FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
+brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 
 # TODO: set up python development environment
 brew 'libsass'
