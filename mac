@@ -52,6 +52,7 @@ brew update --force
 # No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
 brew install --overwrite python3
 
+which chromedriver
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
