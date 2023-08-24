@@ -128,6 +128,7 @@ fi
 # nowadays there is a slim solution by just installing the command line tools
 # xcode-select --install
 
+which chromedriver
 brew bundle --file=- <<EOF
 # brew 'awscli' # fails due to not being able to link properly
 brew 'duff'
