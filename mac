@@ -52,7 +52,6 @@ brew update --force
 # No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
 brew install --overwrite python3
 
-which chromedriver
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
@@ -129,7 +128,6 @@ fi
 # nowadays there is a slim solution by just installing the command line tools
 # xcode-select --install
 
-which chromedriver
 brew bundle --file=- <<EOF
 # brew 'awscli' # fails due to not being able to link properly
 brew 'duff'
@@ -193,7 +191,7 @@ brew 'unused'
 # brew 'mongodb-community'
 
 cask 'firefox'
-cask 'chromedriver'
+# cask 'chromedriver' # FYI: A binary already exists in the system somehow.
 
 cask 'ngrok'
 cask 'wireshark'
