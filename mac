@@ -157,15 +157,17 @@ cask 'iterm2'
 
 brew 'java'
 
-tap 'elastic/tap'
 # TODO: Uncomment once https://github.com/elastic/homebrew-tap/issues/146 is addressed
+# tap 'elastic/tap'
 # brew 'elasticsearch-full'
 # brew 'kibana-full'
+tap 'dskecse/tap'
+brew 'elasticsearch-full@7.17'
+brew 'kibana-full@7.17'
 
 brew 'kafka'
 
 # cask 'emacs'
-tap 'dskecse/tap'
 # cask 'mozart2'
 brew 'elixir@1.14'
 
