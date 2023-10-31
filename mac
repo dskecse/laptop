@@ -203,7 +203,22 @@ brew 'kubernetes-cli'
 brew 'kind'
 brew 'helm'
 # brew 'minikube'
+
+# FYI: Docker Desktop starting w/ 4.25.0 no longer supports macOS Big Sur (11.7.10):
+#
+#   You can't use this version of the application "Docker" with this version of macOS.
+#   You have macOS 11.7.10. The application requires macOS 12.0 or later.
+#
+# As per https://docs.docker.com/desktop/install/mac-install/:
+#
+#   Docker supports Docker Desktop on the most recent versions of macOS.
+#   That is, the current release of macOS and the previous 2 releases.
+#
+# Up-to-date macOS versions list: https://support.apple.com/en-us/HT201260#latest
+# Docker release notes: https://docs.docker.com/desktop/release-notes/
+#
 cask 'docker'
+
 cask 'tunnelbear'
 cask 'cyberduck' # upload media to S3 buckets
 
