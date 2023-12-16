@@ -163,7 +163,7 @@ brew 'java'
 # brew 'kibana-full'
 tap 'dskecse/tap'
 brew 'elasticsearch-full@7.17'
-brew 'kibana-full@7.17'
+# brew 'kibana-full@7.17'
 
 brew 'kafka'
 
