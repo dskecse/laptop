@@ -112,13 +112,17 @@ if [ ! -d "$HOME/.rubies" ]; then
   # chruby "$ruby_version" # set default Ruby
 fi
 
+fancy_echo "Installing Bundler ..."
 gem install bundler
+fancy_echo "Updating RubyGems ..."
 gem update --system
+fancy_echo "Configuring Bundler ..."
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
 # brew tap homebrew/bundle
 
+fancy_echo "Installing oh-my-zsh ..."
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
