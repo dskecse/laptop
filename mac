@@ -116,8 +116,10 @@ fi
 
 fancy_echo "Installing Bundler ..."
 gem install bundler
-fancy_echo "Updating RubyGems ..."
-gem update --system
+# FIXME: RubyGems uses default Ruby (3.0.6 in this case), not the recently installed one.
+#   https://github.com/dskecse/laptop/actions/runs/7261885252/job/19783953934
+# fancy_echo "Updating RubyGems ..."
+# gem update --system
 fancy_echo "Configuring Bundler ..."
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
