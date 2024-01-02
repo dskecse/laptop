@@ -182,7 +182,7 @@ brew 'elixir@1.14'
 # FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
 brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 
-# TODO: set up python development environment
+# Set up minimal Python3 development environment
 brew 'libsass'
 cask 'google-cloud-sdk'
 # brew 'jupyterlab'
