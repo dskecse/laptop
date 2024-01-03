@@ -111,7 +111,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   echo "$ruby_version" > "$HOME/.ruby-version"
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
-  # chruby "$ruby_version" # set default Ruby
+  # chruby "$ruby_version" # sets shell's $RUBY_VERSION to default Ruby
 fi
 
 fancy_echo "Installing Bundler ..."
