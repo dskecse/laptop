@@ -114,6 +114,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
   # chruby "$ruby_version" # sets shell's $RUBY_VERSION to default Ruby
+  chruby # list available Rubies
 fi
 
 fancy_echo "Installing Bundler ..."
