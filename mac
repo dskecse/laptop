@@ -110,6 +110,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   fancy_echo "Setting default Ruby ..."
   echo "$ruby_version" > "$HOME/.ruby-version"
   # https://batsov.com/articles/2022/09/15/reload-zsh-configuration/
+  # shellcheck disable=SC2093
   exec zsh
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
