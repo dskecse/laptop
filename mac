@@ -284,7 +284,8 @@ if [ ! -f "$HOME/.gem/credentials" ]; then
   mkdir -p ~/.gem
 
   # TODO: Migrate from using the legacy API key.
-  # More info: https://guides.rubygems.org/api-key-scopes/
-  curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
+  # https://guides.rubygems.org/api-key-scopes/#migration-from-legacy-api-key
+  # requires the password from stdin, removes the line ":status: :ok" matching "status"
+  curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml | sed '/status/d' > ~/.gem/credentials
   chmod 0600 ~/.gem/credentials
 fi
