@@ -280,12 +280,15 @@ fi
   # EOF when reading a line
 # fi
 
-if [ ! -f "$HOME/.gem/credentials" ]; then
-  mkdir -p ~/.gem
+gems_credentials_file="$HOME/.local/share/gem/credentials"
+if [ ! -f "$gems_credentials_file" ]; then
+  mkdir -p "$(dirname $gems_credentials_file)"
 
-  # TODO: Migrate from using the legacy API key.
+  # Uses a new RubyGems POST /api/v1/api_key endpoint to create an API key.
   # https://guides.rubygems.org/api-key-scopes/#migration-from-legacy-api-key
+  # Same as interactive `gem signin`, which creates ~/.local/share/gem/credentials
   # requires the password from stdin, removes the line ":status: :ok" matching "status"
-  curl -u "$USER" https://rubygems.org/api/v1/api_key.yaml | sed '/status/d' > ~/.gem/credentials
-  chmod 0600 ~/.gem/credentials
+  curl -u "$USER" -X POST -d "name=api-key&index_rubygems=true" \
+    https://rubygems.org/api/v1/api_key.yaml | sed '/status/d' > "$gems_credentials_file"
+  chmod 0600 "$gems_credentials_file"
 fi
