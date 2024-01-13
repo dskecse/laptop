@@ -200,7 +200,6 @@ brew 'elixir@1.14'
 # Set up minimal Python3 development environment
 brew 'libsass'
 cask 'google-cloud-sdk'
-# brew 'jupyterlab'
 
 brew 'ghc'
 brew 'cabal-install'
