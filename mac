@@ -210,7 +210,9 @@ tap 'unused-code/formulae'
 brew 'unused'
 
 tap 'mongodb/brew'
-brew 'mongodb-community'
+# Currently fails:
+#   https://github.com/dskecse/laptop/actions/runs/7512692042/job/20453646915
+# brew 'mongodb-community'
 
 cask 'firefox'
 # cask 'chromedriver' # FYI: A binary already exists in the system somehow.
