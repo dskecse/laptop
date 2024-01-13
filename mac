@@ -114,15 +114,24 @@ if [ ! -d "$HOME/.rubies" ]; then
   . "$HOME/.zshrc"
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
-  # chruby "$ruby_version" # sets shell's $RUBY_VERSION to default Ruby
+  # chruby "$ruby_version" # won't work, only sets shell's $RUBY_VERSION to default Ruby
+
+  # Mimic shell restart
+  export RUBY_VERSION="$ruby_version"
+  # export RUBYOPT=
+  export RUBY_ENGINE=ruby
+  export RUBY_ROOT="$HOME/.rubies/ruby-$ruby_version"
+  export PATH="$RUBY_ROOT/bin:$PATH"
+  export GEM_HOME="$HOME/.gem/$RUBY_ENGINE/$RUBY_VERSION"
+  export GEM_ROOT="$RUBY_ROOT/lib/ruby/gems/$RUBY_VERSION"
+  export GEM_PATH="$GEM_HOME:$GEM_ROOT"
+  export PATH="$GEM_HOME/bin:$GEM_ROOT/bin:$PATH"
 fi
 
+fancy_echo "Updating RubyGems ..."
+gem update --system
 fancy_echo "Installing Bundler ..."
 gem install bundler
-# FIXME: RubyGems uses default Ruby (3.0.6 in this case), not the recently installed one.
-#   https://github.com/dskecse/laptop/actions/runs/7261885252/job/19783953934
-# fancy_echo "Updating RubyGems ..."
-# gem update --system
 fancy_echo "Configuring Bundler ..."
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
