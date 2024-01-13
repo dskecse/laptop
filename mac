@@ -187,8 +187,8 @@ brew 'elasticsearch-full@7.17'
 
 brew 'kafka'
 
-# cask 'emacs'
-# cask 'mozart2'
+cask 'emacs'
+cask 'mozart2'
 brew 'elixir@1.14'
 
 # FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
