@@ -94,7 +94,6 @@ HOMEBREW_PREFIX="/usr/local"
 
 if [ ! -d "$HOME/.rubies" ]; then
   brew install ruby-build
-  # ruby-build --definitions
 
   fancy_echo "Configuring Ruby ..."
   find_latest_ruby() {
