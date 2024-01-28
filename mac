@@ -149,7 +149,7 @@ fi
 
 brew bundle --file=- <<EOF
 # brew 'awscli'
-# Error: The `brew link` step did not complete successfully
+# Error: The "brew link" step did not complete successfully
 # The formula built, but is not symlinked into /usr/local
 # Could not symlink bin/aws
 # Target /usr/local/bin/aws already exists.
