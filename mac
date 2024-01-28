@@ -153,6 +153,10 @@ fi
 # See https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#tools
 brew install --overwrite awscli
 
+# FYI: macOS 13 runner image already contains `go` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#go
+brew install --overwrite go
+
 brew bundle --file=- <<EOF
 brew 'duff'
 brew 'jq'
@@ -173,11 +177,6 @@ brew 'libxslt'
 
 tap 'homebrew/cask-versions'
 cask 'iterm2'
-
-# brew 'go'
-# Error: The "brew link" step did not complete successfully
-# The formula built, but is not symlinked into /usr/local
-# Could not symlink bin/go
 
 brew 'java'
 
