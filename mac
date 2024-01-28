@@ -149,13 +149,11 @@ fi
 # nowadays there is a slim solution by just installing the command line tools
 # xcode-select --install
 
-brew bundle --file=- <<EOF
-# brew 'awscli'
-# Error: The "brew link" step did not complete successfully
-# The formula built, but is not symlinked into /usr/local
-# Could not symlink bin/aws
-# Target /usr/local/bin/aws already exists.
+# FYI: macOS 13 runner image already contains `awscli` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#tools
+brew install --overwrite awscli
 
+brew bundle --file=- <<EOF
 brew 'duff'
 brew 'jq'
 brew 'yq'
