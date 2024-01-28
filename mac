@@ -16,6 +16,14 @@ if [ ! -f "$HOME/.zshrc" ]; then
   touch "$HOME/.zshrc"
 fi
 
+# Determine Homebrew prefix
+arch="$(uname -m)"
+if [ "$arch" = "arm64" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
 update_shell() {
   shell_path="$(command -v zsh)"
 
@@ -29,7 +37,7 @@ update_shell() {
 
 case "$SHELL" in
   */zsh)
-    if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
+    if [ "$(command -v zsh)" != "$HOMEBREW_PREFIX/bin/zsh" ] ; then
       update_shell
     fi
     ;;
@@ -38,12 +46,23 @@ case "$SHELL" in
     ;;
 esac
 
+# Check architecture
+if [ "$arch" = "arm64" ]; then
+  # Check to see if Rosetta is already installed
+  if ! pkgutil --pkg-info=com.apple.pkg.RosettaUpdateAuto > /dev/null 2>&1 ; then
+    fancy_echo "Installing Rosetta2 ..."
+    softwareupdate --install-rosetta --agree-to-license
+  else
+    fancy_echo "Rosetta is installed"
+  fi
+fi
+
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    export PATH="/usr/local/bin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
@@ -96,7 +115,6 @@ brew "mysql", restart_service: :changed
 EOF
 
 brew install chruby
-HOMEBREW_PREFIX="/usr/local"
 # shellcheck disable=SC1091
 . "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
 
@@ -110,7 +128,7 @@ if [ ! -d "$HOME/.rubies" ]; then
 
   ruby_version="$(find_latest_ruby)"
   if ! chruby | grep -Fq "$ruby_version"; then
-    RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl" \
+    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" \
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
