@@ -12,7 +12,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, macos-13]
+        # TODO: Add macOS 14 (Sonoma) when it gets available:
+        # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
+        # https://github.com/actions/runner-images/issues/7508
+        # https://github.com/actions/runner-images/pull/9179
+        os: [macos-13]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
