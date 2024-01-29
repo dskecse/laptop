@@ -200,10 +200,8 @@ cask 'iterm2'
 
 brew 'java'
 
-# TODO: Uncomment once https://github.com/elastic/homebrew-tap/issues/146 is addressed
-# tap 'elastic/tap'
-# brew 'elasticsearch-full'
-# brew 'kibana-full'
+# Moved away from using no longer maintained 'elastic/tap':
+# https://github.com/elastic/homebrew-tap/pull/126#issuecomment-1059264078
 tap 'dskecse/tap'
 brew 'elasticsearch-full@7.17'
 # brew 'kibana-full@7.17'
