@@ -267,6 +267,7 @@ brew 'helm'
 cask 'docker'
 
 cask 'tunnelbear'
+cask 'openvpn-connect'
 cask 'cyberduck' # upload media to S3 buckets
 
 # FYI: Requires tmux.
