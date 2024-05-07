@@ -195,7 +195,6 @@ brew 'wasmtime'
 brew 'libxml2'
 brew 'libxslt'
 
-tap 'homebrew/cask-versions'
 cask 'iterm2'
 
 brew 'java'
