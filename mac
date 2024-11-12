@@ -231,6 +231,9 @@ brew 'clojure'
 tap 'unused-code/formulae'
 brew 'unused'
 
+tap 'hashicorp/tap'
+brew 'hashicorp/tap/vault'
+
 tap 'mongodb/brew'
 # Currently fails:
 #   https://github.com/dskecse/laptop/actions/runs/7512692042/job/20453646915
