@@ -159,7 +159,7 @@ gem update --system
 fancy_echo "Installing Bundler ..."
 gem install bundler
 fancy_echo "Configuring Bundler ..."
-number_of_cores=$(sysctl -n hw.ncpu)
+number_of_cores=$(nproc)
 bundle config --global jobs $((number_of_cores - 1))
 
 # brew tap homebrew/bundle
