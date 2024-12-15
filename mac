@@ -87,6 +87,7 @@ tap "homebrew/services"
 brew "git"
 # system dependencies for Ruby builds
 brew "openssl"
+brew "jemalloc"
 brew "rcm"
 brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
 brew "the_silver_searcher"
@@ -128,7 +129,7 @@ if [ ! -d "$HOME/.rubies" ]; then
 
   ruby_version="$(find_latest_ruby)"
   if ! chruby | grep -Fq "$ruby_version"; then
-    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" \
+    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl --with-jemalloc" \
       ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
   fi
 
