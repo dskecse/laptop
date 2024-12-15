@@ -191,10 +191,9 @@ brew 'httpie'
 
 brew 'wasmtime'
 
-# http://stackoverflow.com/questions/9134423/os-x-lion-attempting-nokogiri-install-libxml2-is-missing
-# http://www.nokogiri.org/tutorials/installing_nokogiri.html
-brew 'libxml2'
-brew 'libxslt'
+# https://nokogiri.org/tutorials/installing_nokogiri.html#installing-native-gems
+# brew 'libxml2'
+# brew 'libxslt'
 
 cask 'iterm2'
 
