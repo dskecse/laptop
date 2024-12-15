@@ -104,7 +104,7 @@ brew "imagemagick" # to crop and resize images
 # Programming languages and package managers
 brew "libyaml" # should come after OpenSSL
 brew "coreutils"
-brew "readline"
+brew "readline" # Ruby 3.3+ now uses Ruby-based reline instead
 brew "node"
 brew "yarn"
 
