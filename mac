@@ -68,8 +68,8 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
-# FYI: macOS 15 runner image already contains `awscli` formula installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md#tools
+# FYI: macOS 15 arm64 runner image already contains `awscli` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#tools
 # Currently depends on `python@3.12`
 brew install --overwrite python@3.12
 brew install --overwrite awscli
@@ -172,12 +172,12 @@ fi
 # In the past it was necessary to install Apple's XCode IDE to get
 # basic tools like GCC, Git and Subversion on your machine, but
 # nowadays there is a slim solution by just installing the command line tools
-# FYI: macOS 15 runner image already contains XCode command line tools installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md#tools
+# FYI: macOS 15 arm64 runner image already contains XCode command line tools installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#tools
 # xcode-select --install
 
-# FYI: macOS 15 runner image already contains `go` formula installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md#go
+# FYI: macOS 15 arm64 runner image already contains `go` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#go
 brew install --overwrite go
 
 brew bundle --file=- <<EOF
