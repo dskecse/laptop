@@ -68,16 +68,16 @@ fi
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force
 
-# FYI: macOS 13 runner image already contains `awscli` formula installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#tools
-# Currently depends on `python@3.11`
-brew install --overwrite python@3.11
+# FYI: macOS 15 runner image already contains `awscli` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md#tools
+# Currently depends on `python@3.12`
+brew install --overwrite python@3.12
 brew install --overwrite awscli
 
 # No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
-# FYI: As of Jan 28, 2024 `python3` is aliased to `python@3.11`, not `python@3.12`
+# FYI: As of Oct 8, 2024 `python3` is aliased to `python@3.13`
+# See https://github.com/Homebrew/homebrew-core/blob/master/Aliases/python3
 # brew install --overwrite python3
-brew install --overwrite python@3.12
 
 brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
