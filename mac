@@ -140,6 +140,7 @@ if [ ! -d "$HOME/.rubies" ]; then
                  --src-dir "$HOME/.cache/ruby-install" \
                  --install-dir "$HOME/.rubies/ruby-$ruby_version" \
                  --cleanup \
+                 --debug \
                  ruby "$ruby_version" -- \
                  "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" "--with-jemalloc"
   fi
