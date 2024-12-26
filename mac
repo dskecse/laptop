@@ -120,17 +120,27 @@ brew install chruby
 . "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
 
 if [ ! -d "$HOME/.rubies" ]; then
-  brew install ruby-build
+  # https://www.ruby-lang.org/en/documentation/installation/#chruby
+  brew install ruby-install
 
   fancy_echo "Configuring Ruby ..."
   find_latest_ruby() {
-    ruby-build -l | grep -v - | tail -1 | sed -e 's/^ *//'
+    ruby-install --update
+    # ruby-install | yq '.*.ruby' | tr ' ' "\n" | tail -1
+    # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-versions.sh#L83
+    cat "$HOME/.cache/ruby-install/ruby/stable.txt" | tail -1
   }
 
   ruby_version="$(find_latest_ruby)"
   if ! chruby | grep -Fq "$ruby_version"; then
-    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl --with-jemalloc" \
-      ruby-build "$ruby_version" "$HOME/.rubies/ruby-$ruby_version"
+    # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
+    # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
+    ruby-install --no-reinstall \
+                 --src-dir "$HOME/.cache/ruby-install" \ # download into ~/.cache/ruby-install/ rather than ~/src/
+                 --install-dir "$HOME/.rubies/ruby-$ruby_version" \
+                 --cleanup \
+                 ruby "$ruby_version" -- \
+                 "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" "--with-jemalloc"
   fi
 
   fancy_echo "Setting default Ruby ..."
