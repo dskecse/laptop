@@ -135,8 +135,8 @@ if [ ! -d "$HOME/.rubies" ]; then
   if ! chruby | grep -Fq "$ruby_version"; then
     # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
+    # FYI: This will download the source code into ~/.cache/ruby-install/ rather than ~/src/.
     ruby-install --no-reinstall \
-                 # download into ~/.cache/ruby-install/ rather than ~/src/
                  --src-dir "$HOME/.cache/ruby-install" \
                  --install-dir "$HOME/.rubies/ruby-$ruby_version" \
                  --cleanup \
