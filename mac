@@ -128,7 +128,7 @@ if [ ! -d "$HOME/.rubies" ]; then
     ruby-install --update
     # ruby-install | yq '.*.ruby' | tr ' ' "\n" | tail -1
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-versions.sh#L83
-    cat "$HOME/.cache/ruby-install/ruby/stable.txt" | tail -1
+    tail -1 "$HOME/.cache/ruby-install/ruby/stable.txt"
   }
 
   ruby_version="$(find_latest_ruby)"
@@ -136,7 +136,8 @@ if [ ! -d "$HOME/.rubies" ]; then
     # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
     ruby-install --no-reinstall \
-                 --src-dir "$HOME/.cache/ruby-install" \ # download into ~/.cache/ruby-install/ rather than ~/src/
+                 # download into ~/.cache/ruby-install/ rather than ~/src/
+                 --src-dir "$HOME/.cache/ruby-install" \
                  --install-dir "$HOME/.rubies/ruby-$ruby_version" \
                  --cleanup \
                  ruby "$ruby_version" -- \
