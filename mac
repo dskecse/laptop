@@ -123,10 +123,10 @@ if [ ! -d "$HOME/.rubies" ]; then
   # https://www.ruby-lang.org/en/documentation/installation/#chruby
   brew install ruby-install
 
+  ruby-install --update
+
   fancy_echo "Configuring Ruby ..."
   find_latest_ruby() {
-    ruby-install --update
-    # ruby-install | yq '.*.ruby' | tr ' ' "\n" | tail -1
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-versions.sh#L83
     tail -1 "$HOME/.cache/ruby-install/ruby/stable.txt"
   }
