@@ -142,7 +142,7 @@ if [ ! -d "$HOME/.rubies" ]; then
                  --cleanup \
                  --debug \
                  ruby "$ruby_version" -- \
-                 "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" "--with-jemalloc"
+                 "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" "--with-opt-dir=$HOMEBREW_PREFIX/opt/jemalloc" "--with-jemalloc"
   fi
 
   fancy_echo "Setting default Ruby ..."
