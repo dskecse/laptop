@@ -136,6 +136,14 @@ if [ ! -d "$HOME/.rubies" ]; then
     # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
     # FYI: This will download the source code into ~/.cache/ruby-install/ rather than ~/src/.
+    # The "--with-opt-dir=$HOMEBREW_PREFIX/opt/jemalloc" option fixes the following error:
+    #
+    #   checking for jemalloc/jemalloc.h... no
+    #   checking for jemalloc.h... no
+    #   configure: error: jemalloc requested but not found
+    #   checking for jemalloc library... no
+    #   !!! Configuration of ruby 3.4.1 failed!
+    #
     ruby-install --no-reinstall \
                  --src-dir "$HOME/.cache/ruby-install" \
                  --install-dir "$HOME/.rubies/ruby-$ruby_version" \
