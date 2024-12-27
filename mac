@@ -128,7 +128,8 @@ if [ ! -d "$HOME/.rubies" ]; then
 
   ruby_version="$(find_latest_ruby)"
   if ! frum versions | grep -Fq "$ruby_version"; then
-    frum install "$ruby_version" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl" --with-jemalloc
+    frum install "$ruby_version" \
+      --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl" --with-opt-dir="$HOMEBREW_PREFIX/opt/jemalloc" --with-jemalloc
   fi
 
   fancy_echo "Setting default Ruby ..."
