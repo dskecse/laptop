@@ -115,43 +115,21 @@ brew "redis", restart_service: :changed
 brew "mysql", restart_service: :changed
 EOF
 
-brew install chruby
-# shellcheck disable=SC1091
-. "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+brew install frum
+eval "$(frum init)"
 
 if [ ! -d "$HOME/.rubies" ]; then
-  # https://www.ruby-lang.org/en/documentation/installation/#chruby
-  brew install ruby-install
-
-  ruby-install --update
 
   fancy_echo "Configuring Ruby ..."
   find_latest_ruby() {
-    # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-versions.sh#L83
-    tail -1 "$HOME/.cache/ruby-install/ruby/stable.txt"
+    # https://github.com/TaKO8Ki/frum?tab=readme-ov-file#subcommands
+    frum install --list | tail -1
   }
 
   ruby_version="$(find_latest_ruby)"
-  if ! chruby | grep -Fq "$ruby_version"; then
-    # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
-    # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
-    # FYI: This will download the source code into ~/.cache/ruby-install/ rather than ~/src/.
-    # The "--with-opt-dir=$HOMEBREW_PREFIX/opt/jemalloc" option fixes the following error:
-    #
-    #   checking for jemalloc/jemalloc.h... no
-    #   checking for jemalloc.h... no
-    #   configure: error: jemalloc requested but not found
-    #   checking for jemalloc library... no
-    #   !!! Configuration of ruby 3.4.1 failed!
-    #
-    ruby-install --no-reinstall \
-                 --src-dir "$HOME/.cache/ruby-install" \
-                 --install-dir "$HOME/.rubies/ruby-$ruby_version" \
-                 --cleanup \
-                 ruby "$ruby_version" -- \
-                 "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl" \
-                 "--with-opt-dir=$HOMEBREW_PREFIX/opt/readline:$HOMEBREW_PREFIX/opt/libyaml:$HOMEBREW_PREFIX/opt/gdbm:$HOMEBREW_PREFIX/opt/jemalloc" \
-                 "--with-jemalloc"
+  if ! frum versions | grep -Fq "$ruby_version"; then
+    frum install "$ruby_version" \
+      --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl" --with-opt-dir="$HOMEBREW_PREFIX/opt/jemalloc" --with-jemalloc
   fi
 
   fancy_echo "Setting default Ruby ..."
@@ -159,9 +137,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   # https://batsov.com/articles/2022/09/15/reload-zsh-configuration/
   # shellcheck disable=SC1091
   . "$HOME/.zshrc"
-  # After installing new Rubies, one must restart the shell before chruby can recognize them.
-  # https://github.com/postmodern/chruby#rubies-1
-  # chruby "$ruby_version" # won't work, only sets shell's $RUBY_VERSION to default Ruby
+  frum global "$ruby_version"
 
   # Mimic shell restart
   export RUBY_VERSION="$ruby_version"
