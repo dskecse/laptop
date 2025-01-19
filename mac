@@ -210,7 +210,10 @@ fi
 
 # FYI: macOS 15 arm64 runner image already contains `go` formula installed
 # See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#go
-brew install --overwrite go
+if ! brew list -1 | grep ^go$ ; then
+  fancy_echo "Installing Go ..."
+  brew install go
+fi
 
 brew bundle --file=- <<EOF
 brew 'duff'
