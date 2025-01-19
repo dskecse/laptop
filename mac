@@ -113,7 +113,12 @@ brew "yarn"
 # Databases
 brew "postgresql@17", restart_service: :changed
 brew "redis", restart_service: :changed
+tap "mongodb/brew"
 EOF
+
+if ! brew list -1 | grep mongodb-community ; then
+  brew install mongodb-community
+fi
 
 brew install chruby
 # shellcheck disable=SC1091
@@ -272,12 +277,6 @@ brew 'unused'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/vault'
-
-tap 'mongodb/brew'
-# Currently fails:
-#   https://github.com/dskecse/laptop/actions/runs/7512692042/job/20453646915
-# brew 'mongodb-community'
-# TODO: Try uninstalling mongodb-community@5.0 first!
 
 cask 'firefox'
 # cask 'chromedriver' # FYI: A binary already exists in the system somehow.
