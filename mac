@@ -113,7 +113,6 @@ brew "yarn"
 # Databases
 brew "postgresql@14", restart_service: :changed
 brew "redis", restart_service: :changed
-brew "mysql", restart_service: :changed
 EOF
 
 brew install chruby
