@@ -345,7 +345,9 @@ cask 'fliqlo'
 EOF
 
 # To get rid of "error: could not run gpg." w/ git-commit
-ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
+# TODO: Configure `git config --global gpg.program gpg2` instead.
+# More info: https://docs.github.com/en/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys
+# ln -sf /usr/local/bin/gpg2 /usr/local/bin/gpg
 
 if [ ! -d "$HOME/.vim/" ]; then
   git clone https://github.com/dskecse/dotvim.git ~/.vim
