@@ -240,15 +240,16 @@ brew 'java'
 
 # Moved away from using no longer maintained 'elastic/tap':
 # https://github.com/elastic/homebrew-tap/pull/126#issuecomment-1059264078
-tap 'dskecse/tap'
-brew 'elasticsearch-full@7.17'
+# tap 'dskecse/tap'
+# brew 'elasticsearch-full@7.17'
 # brew 'kibana-full@7.17'
 
-brew 'kafka'
+# brew 'kafka'
 
-cask 'emacs'
-cask 'mozart2'
-brew 'elixir@1.14'
+# cask 'emacs'
+# cask 'mozart2'
+
+# brew 'elixir@1.14'
 
 # FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
 # Currently fails:
