@@ -282,6 +282,7 @@ cask 'ngrok'
 cask 'wireshark'
 
 cask 'dropbox'
+
 # Specific version due to client-server compatibility issue
 # brew 'kubernetes-cli@1.25'
 brew 'kubernetes-cli'
