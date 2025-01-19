@@ -71,8 +71,8 @@ brew update --force
 # FYI: macOS 15 arm64 runner image already contains `awscli` formula installed
 # See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#tools
 # Currently depends on `python@3.12`
-brew install --overwrite python@3.12
-brew install --overwrite awscli
+# brew install --overwrite python@3.12
+# brew install --overwrite awscli
 
 # No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
 # FYI: As of Oct 8, 2024 `python3` is aliased to `python@3.13`
