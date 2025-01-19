@@ -272,9 +272,6 @@ brew 'leiningen'
 tap 'clojure/tools'
 brew 'clojure'
 
-tap 'unused-code/formulae'
-brew 'unused'
-
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/vault'
 
