@@ -89,7 +89,9 @@ brew "git"
 brew "openssl"
 brew "jemalloc"
 brew "rcm"
-brew "reattach-to-user-namespace" # for copy-paste and RubyMotion compatibility with tmux
+# Starting w/ Big Sur, it's recommended to use "launchctl asuser ..." instead:
+# https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/78
+# brew "reattach-to-user-namespace" # for copy-paste with tmux
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
