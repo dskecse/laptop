@@ -255,7 +255,7 @@ brew 'java'
 # Currently fails:
 #   Possible conflicting files are:
 #   /usr/local/bin/ctags -> /Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_11/ctags
-# brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
+brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 
 # Set up minimal Python3 development environment
 brew 'libsass'
