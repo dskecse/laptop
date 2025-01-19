@@ -85,9 +85,7 @@ tap "homebrew/services"
 
 # Unix
 brew "git"
-# system dependencies for Ruby builds
 brew "openssl"
-brew "jemalloc"
 brew "rcm"
 # Starting w/ Big Sur, it's recommended to use "launchctl asuser ..." instead:
 # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/78
@@ -104,7 +102,8 @@ brew "gh"
 # Image manipulation
 brew "imagemagick" # to crop and resize images
 
-# Programming languages and package managers
+# Programming language prerequisites and package managers
+brew "jemalloc"
 brew "libyaml" # should come after OpenSSL
 brew "coreutils"
 brew "readline" # Ruby 3.3+ now uses Ruby-based reline instead
