@@ -258,9 +258,6 @@ brew 'java'
 brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 
 # Set up minimal Python3 development environment
-# https://sass-lang.com/dart-sass/
-# https://github.com/sass/homebrew-sass
-brew 'sass/sass/sass'
 cask 'google-cloud-sdk'
 
 brew 'ghc'
