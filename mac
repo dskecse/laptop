@@ -303,7 +303,12 @@ brew 'helm'
 # Up-to-date macOS versions list: https://support.apple.com/en-us/HT201260#latest
 # Docker release notes: https://docs.docker.com/desktop/release-notes/
 #
-cask 'docker'
+# cask 'docker'
+
+# OrbStack: https://orbstack.dev/download
+# Fast, light, powerful way to run containers
+# Supports macOS 13.0+
+cask 'orbstack'
 
 cask 'tunnelbear'
 cask 'openvpn-connect'
