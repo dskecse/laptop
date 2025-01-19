@@ -111,7 +111,7 @@ brew "node"
 brew "yarn"
 
 # Databases
-brew "postgresql@14", restart_service: :changed
+brew "postgresql@17", restart_service: :changed
 brew "redis", restart_service: :changed
 EOF
 
