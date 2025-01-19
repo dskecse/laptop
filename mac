@@ -180,6 +180,7 @@ gem update --system
 fancy_echo "Installing Bundler ..."
 gem install bundler
 fancy_echo "Configuring Bundler ..."
+# FYI: "nproc" is not installed by default, comes from "coreutils"
 number_of_cores=$(nproc)
 bundle config --global jobs $((number_of_cores - 1))
 # https://bundler.io/v2.6/man/bundle-config.1.html
