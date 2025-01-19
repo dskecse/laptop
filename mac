@@ -188,8 +188,8 @@ bundle config --global path ".bundle"
 bundle config --global without production
 # https://github.com/brianmario/mysql2#general-instructions
 # https://github.com/brianmario/mysql2#mac-os-x
-bundle config --global build.mysql2 -- \
-  --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
+# bundle config --global build.mysql2 -- \
+#   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
 
 # brew tap homebrew/bundle
 
