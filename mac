@@ -225,6 +225,8 @@ brew 'nmap'
 brew 'tig'
 brew 'dos2unix'
 brew 'httpie'
+brew 'shellcheck'
+brew 'cloc'
 
 brew 'wasmtime'
 
