@@ -80,7 +80,6 @@ brew update --force
 # brew install --overwrite python3
 
 brew bundle --file=- <<EOF
-tap "thoughtbot/formulae"
 tap "homebrew/services"
 
 # Unix
