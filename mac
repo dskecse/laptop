@@ -80,8 +80,6 @@ brew update --force
 # brew install --overwrite python3
 
 brew bundle --file=- <<EOF
-tap "homebrew/services"
-
 # Unix
 brew "git"
 brew "openssl"
@@ -194,8 +192,6 @@ if [ ! -d "$HOME/.rubies" ]; then
   # bundle config --global build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
 fi
-
-# brew tap homebrew/bundle
 
 fancy_echo "Installing oh-my-zsh ..."
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
