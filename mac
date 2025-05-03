@@ -240,9 +240,8 @@ brew 'java'
 
 # Moved away from using no longer maintained 'elastic/tap':
 # https://github.com/elastic/homebrew-tap/pull/126#issuecomment-1059264078
-# tap 'dskecse/tap'
-# brew 'elasticsearch-full@7.17'
-# brew 'kibana-full@7.17'
+# Use their containers images instead
+# https://www.elastic.co/downloads/elasticsearch
 
 # brew 'kafka'
 
