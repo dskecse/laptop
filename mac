@@ -300,10 +300,6 @@ cask 'tunnelbear'
 cask 'openvpn-connect'
 cask 'cyberduck' # upload media to S3 buckets
 
-# FYI: Requires tmux.
-# https://evilmartians.com/chronicles/introducing-overmind-and-hivemind
-# brew 'overmind'
-
 # Get set for native app development
 # brew 'cocoapods'
 # brew 'watchman'
