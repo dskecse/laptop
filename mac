@@ -248,8 +248,6 @@ brew 'java'
 # cask 'emacs'
 # cask 'mozart2'
 
-# brew 'elixir@1.14'
-
 # FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
 # Currently fails:
 #   Possible conflicting files are:
