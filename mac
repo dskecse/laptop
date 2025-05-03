@@ -277,8 +277,8 @@ cask 'wireshark'
 
 cask 'dropbox'
 
-# Specific version due to client-server compatibility issue
-# brew 'kubernetes-cli@1.25'
+# In case there's client-server compatibility issue, use a specific version, e.g.
+# brew 'kubernetes-cli@1.26'
 brew 'kubernetes-cli'
 brew 'kind'
 brew 'helm'
