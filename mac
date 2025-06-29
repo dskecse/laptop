@@ -318,6 +318,7 @@ brew 'keychain'
 brew 'lame'
 brew 'ffmpeg'
 cask 'handbrake-app'
+cask 'iina'
 
 # brew 'postgis'
 
