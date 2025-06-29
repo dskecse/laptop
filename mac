@@ -271,7 +271,7 @@ cask 'firefox'
 # cask 'chromedriver' # FYI: A binary already exists in the system somehow.
 
 cask 'ngrok'
-cask 'wireshark'
+cask 'wireshark-app'
 
 cask 'dropbox'
 
@@ -317,7 +317,7 @@ brew 'keychain'
 
 brew 'lame'
 brew 'ffmpeg'
-cask 'handbrake'
+cask 'handbrake-app'
 
 # brew 'postgis'
 
