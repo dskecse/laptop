@@ -267,6 +267,9 @@ brew 'clojure'
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/vault'
 
+tap 'qltysh/tap'
+brew 'qlty'
+
 cask 'firefox'
 # cask 'chromedriver' # FYI: A binary already exists in the system somehow.
 
