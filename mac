@@ -256,7 +256,7 @@ brew "universal-ctags" # index files for vim tab completion of methods, classes,
 
 # Set up minimal Python3 development environment
 brew 'python@3.12' # python@3.13 is failing on "ModuleNotFoundError: No module named 'cgi'"
-cask 'google-cloud-sdk'
+cask 'gcloud-cli'
 
 brew 'ghc'
 brew 'cabal-install'
