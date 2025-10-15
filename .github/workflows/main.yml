@@ -13,10 +13,8 @@ jobs:
     strategy:
       matrix:
         # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
-        # https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md
         # https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md
         os:
-          - macos-15
           - macos-26
     runs-on: ${{ matrix.os }}
     steps:
