@@ -274,7 +274,7 @@ cask 'firefox'
 # cask 'chromedriver' # FYI: A binary already exists in the system somehow.
 
 cask 'ngrok'
-cask 'wireshark-app'
+# cask 'wireshark-app'
 
 cask 'dropbox'
 
