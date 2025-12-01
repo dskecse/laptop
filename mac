@@ -201,15 +201,16 @@ fi
 # In the past it was necessary to install Apple's XCode IDE to get
 # basic tools like GCC, Git and Subversion on your machine, but
 # nowadays there is a slim solution by just installing the command line tools
-# FYI: macOS 15 arm64 runner image already contains XCode command line tools installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#tools
+#
+# FYI: macOS 26 arm64 runner image already contains XCode command line tools installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#tools
 if ! xcode-select -p > /dev/null 2>&1 ; then
-  fancy_echo "Installing XCode CLT  ..."
+  fancy_echo "Installing XCode CLT ..."
   xcode-select --install
 fi
 
-# FYI: macOS 15 arm64 runner image already contains `go` formula installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md#go
+# FYI: macOS 26 arm64 runner image already contains `go` formula installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#go
 if ! brew list -1 | grep ^go$ ; then
   fancy_echo "Installing Go ..."
   brew install go
