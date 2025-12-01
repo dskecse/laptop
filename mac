@@ -17,7 +17,7 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 # Determine Homebrew prefix
-arch="$(uname -m)" # currently x86_64
+arch="$(uname -m)" # used to be x86_64, now arm64
 if [ "$arch" = "arm64" ]; then
   HOMEBREW_PREFIX="/opt/homebrew"
 else
