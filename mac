@@ -228,6 +228,7 @@ brew 'dos2unix'
 brew 'httpie'
 brew 'shellcheck'
 brew 'cloc'
+brew 'samply' # command-line CPU profiler w/ Firefox Profiler compatible reports
 
 brew 'wasmtime'
 
