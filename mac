@@ -322,6 +322,7 @@ brew 'keychain'
 
 brew 'lame'
 brew 'ffmpeg'
+brew 'exiftool'
 cask 'handbrake-app'
 cask 'iina'
 

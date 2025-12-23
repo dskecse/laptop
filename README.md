@@ -103,6 +103,7 @@ Media tools:
 * [Cyberduck](https://cyberduck.io) for uploading media files to S3 buckets and browsing cloud storage
 * [LAME](https://lame.sourceforge.io) for encoding MPEG Audio Layer III (MP3)
 * [FFmpeg](https://ffmpeg.org) for recording, converting and streaming audio and video
+* [ExifTool](https://exiftool.org) for reading and writing EXIF metadata
 * [HandBrake](https://handbrake.fr) for converting video from nearly any format to a selection of modern, widely supported codecs
 * [IINA](https://iina.io) a modern media player for macOS
 
