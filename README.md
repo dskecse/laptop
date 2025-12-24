@@ -43,7 +43,7 @@ Unix tools:
 * [Graphviz](https://www.graphviz.org) for visualizing graphs
 * [Nmap](https://nmap.org) for network discovery and security auditing
 * [dos2unix](https://waterlan.home.xs4all.nl/dos2unix.html) for converting text between DOS, UNIX, and Mac formats
-* [httpie](https://httpie.io/) a command-line HTTP and API testing client
+* [HTTPie](https://httpie.io/) a command-line HTTP and API testing client
 * [ShellCheck](https://www.shellcheck.net/) for finding bugs in shell scripts
 * [cloc](https://github.com/AlDanial/cloc/) for counting lines of code
 * [samply](https://github.com/mstange/samply) a command-line CPU profiler with Firefox Profiler compatible reports
