@@ -183,13 +183,13 @@ if [ ! -d "$HOME/.rubies" ]; then
   fancy_echo "Configuring Bundler ..."
   # FYI: "nproc" is not installed by default, comes from "coreutils"
   number_of_cores=$(nproc)
-  bundle config --global jobs $((number_of_cores - 1))
+  bundle config set jobs $((number_of_cores - 1))
   # https://bundler.io/v2.6/man/bundle-config.1.html
-  bundle config --global path ".bundle"
-  bundle config --global without production
+  bundle config set path ".bundle"
+  bundle config set without production
   # https://github.com/brianmario/mysql2#general-instructions
   # https://github.com/brianmario/mysql2#mac-os-x
-  # bundle config --global build.mysql2 -- \
+  # bundle config set build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
 fi
 
