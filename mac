@@ -107,6 +107,8 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
+# Starting with macOS Catalina, zsh is the default login shell and interactive shell
+# See https://support.apple.com/en-us/102360
 brew "zsh"
 
 # GitHub
