@@ -55,10 +55,30 @@ fi
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
+    # Opt out of collecting anonymous analytics by Homebrew explicitly
+    # See https://docs.brew.sh/Analytics
+    export HOMEBREW_NO_ANALYTICS=1
+
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # FYI: This also installs Xcode Command Line Tools before that!
+    # See https://github.com/Homebrew/install/blob/f92e9a64f11580293bc0f1b87858f6aa3b9f8f23/install.sh#L850
 
     export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+fi
+
+# In the past it was necessary to install Apple's Xcode IDE to get
+# basic tools like GCC and Git on your machine, but nowadays
+# there is a slim solution by just installing the command line tools
+#
+# FYI: macOS 26 arm64 runner image already contains XCode Command Line Tools installed
+# See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#tools
+#
+# FYI: Xcode Command Line Tools must have been installed w/ Homebrew
+# See https://github.com/Homebrew/install/blob/f92e9a64f11580293bc0f1b87858f6aa3b9f8f23/install.sh#L850
+if ! xcode-select -p > /dev/null 2>&1 ; then
+  fancy_echo "Installing XCode Command Line Tools ..."
+  xcode-select --install
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
@@ -189,17 +209,6 @@ if [ ! -d "$HOME/.rubies" ]; then
   # https://github.com/brianmario/mysql2#mac-os-x
   # bundle config set build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
-fi
-
-# In the past it was necessary to install Apple's XCode IDE to get
-# basic tools like GCC, Git and Subversion on your machine, but
-# nowadays there is a slim solution by just installing the command line tools
-#
-# FYI: macOS 26 arm64 runner image already contains XCode command line tools installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#tools
-if ! xcode-select -p > /dev/null 2>&1 ; then
-  fancy_echo "Installing XCode CLT ..."
-  xcode-select --install
 fi
 
 # FYI: macOS 26 arm64 runner image already contains `go` formula installed
