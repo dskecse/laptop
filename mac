@@ -55,8 +55,14 @@ fi
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
+    # Opt out of collecting anonymous analytics by Homebrew explicitly
+    #   https://docs.brew.sh/Analytics
+    export HOMEBREW_NO_ANALYTICS=1
+
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # FYI: This also installs Xcode Command Line Tools before that!
+    # https://github.com/Homebrew/install/blob/f92e9a64f11580293bc0f1b87858f6aa3b9f8f23/install.sh#L850
 
     export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
@@ -197,10 +203,10 @@ fi
 #
 # FYI: macOS 26 arm64 runner image already contains XCode command line tools installed
 # See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#tools
-if ! xcode-select -p > /dev/null 2>&1 ; then
-  fancy_echo "Installing XCode CLT ..."
-  xcode-select --install
-fi
+# if ! xcode-select -p > /dev/null 2>&1 ; then
+#   fancy_echo "Installing XCode Command Line Tools ..."
+#   xcode-select --install
+# fi
 
 # FYI: macOS 26 arm64 runner image already contains `go` formula installed
 # See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#go
