@@ -143,7 +143,9 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
-command -v psql 2>&1
+if ! command -v psql >/dev/null 2>&1 ; then
+  echo "psql command does not exist."
+fi
 # which psql-18
 # which initdb
 # which createuser-18
