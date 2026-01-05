@@ -109,13 +109,13 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
+if ! brew list -1 | grep mongodb-community ; then
+  brew install mongodb-community
+fi
+
 fancy_echo "Installing Oh My Zsh ..."
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if ! brew list -1 | grep mongodb-community ; then
-  brew install mongodb-community
 fi
 
 brew install chruby
