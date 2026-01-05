@@ -147,12 +147,12 @@ which psql
 which psql-18
 which initdb
 which createuser-18
-ls "$HOMEBREW_PREFIX/Cellar" | grep postgres # postgresql@18
+find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
 [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
 if command -v psql-18 >/dev/null ; then
   psql-18 --list # list available databases
 fi
-ls "$HOMEBREW_PREFIX/Cellar" | grep postgres # postgresql@18
+find /opt/homebrew/Cellar -type d -name 'postgres*' -depth 1 # postgresql@18
 [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
 
 if ! brew list -1 | grep mongodb-community ; then
