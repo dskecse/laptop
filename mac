@@ -146,17 +146,24 @@ EOF
 if ! command -v psql >/dev/null 2>&1 ; then
   echo "psql command does not exist."
 
-  export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # psql-18, initdb-18, createdb-18, createuser-18
   ls "$HOMEBREW_PREFIX/bin" # has psql-18 but not psql
   which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/psql
 
-  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH"
+  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # psql, initdb, createdb, createuser
 fi
 which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18
-which initdb || echo "initdb does not exist."
-which createuser-18 || echo "createuser-18 does not exist."
+which initdb || echo "initdb does not exist." # /opt/homebrew/opt/postgresql@18/bin/initdb
+which createuser-18 || echo "createuser-18 does not exist." # /opt/homebrew/bin/createuser-18
 find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
 [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
+# https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
+if command -v createdb >/dev/null 2>&1 ; then
+  psql -l # Display available Postgres databases
+  createdb # Creates a db w/ a name & owner equal to "$USER"
+  psql -l
+  # psql -c 'SELECT 1;' # Test if "psql" succeeds
+fi
 # if command -v psql-18 >/dev/null ; then
 #   psql-18 --list # list available databases
 # fi
