@@ -34,7 +34,7 @@ update_shell() {
 echo "Current shell: $SHELL"
 echo "Shell path: $(command -v zsh)"
 if ! command -v xcode-select >/dev/null; then
-  echo "$(xcode-select -p)"
+  xcode-select -p
 fi
 
 case "$SHELL" in
