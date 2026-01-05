@@ -113,6 +113,11 @@ if ! brew list -1 | grep mongodb-community ; then
   brew install mongodb-community
 fi
 
+if [ ! -d "$HOME/.oh-my-zsh/" ]; then
+  fancy_echo "Installing Oh My Zsh ..."
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 brew install chruby
 # shellcheck disable=SC1091
 . "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
@@ -187,11 +192,6 @@ if [ ! -d "$HOME/.rubies" ]; then
   # https://github.com/brianmario/mysql2#mac-os-x
   # bundle config set build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
-fi
-
-fancy_echo "Installing Oh My Zsh ..."
-if [ ! -d "$HOME/.oh-my-zsh/" ]; then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # In the past it was necessary to install Apple's XCode IDE to get
