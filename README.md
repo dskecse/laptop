@@ -47,7 +47,7 @@ Unix tools:
 * [ShellCheck](https://www.shellcheck.net/) for finding bugs in shell scripts
 * [cloc](https://github.com/AlDanial/cloc/) for counting lines of code
 * [samply](https://github.com/mstange/samply) a command-line CPU profiler with Firefox Profiler compatible reports
-* [Qlty CLI](https://qlty.sh) (ex-CodeClimate) for automating code quality checks, linting and auto-formatting code
+<!-- * [Qlty CLI](https://qlty.sh) (ex-CodeClimate) for automating code quality checks, linting and auto-formatting code -->
 
 Terminal:
 

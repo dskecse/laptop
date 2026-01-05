@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
   schedule:
     # Schedule the job to run at 9am on Tuesday.
     - cron: "0 9 * * 2"
