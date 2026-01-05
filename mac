@@ -109,6 +109,11 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
+fancy_echo "Installing Oh My Zsh ..."
+if [ ! -d "$HOME/.oh-my-zsh/" ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 if ! brew list -1 | grep mongodb-community ; then
   brew install mongodb-community
 fi
@@ -156,8 +161,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   echo "$ruby_version" > "$HOME/.ruby-version"
   # https://batsov.com/articles/2022/09/15/reload-zsh-configuration/
   # shellcheck disable=SC1091
-  # . "$HOME/.zshrc"
-  exec zsh -l
+  . "$HOME/.zshrc"
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
   # chruby "$ruby_version" # won't work, only sets shell's $RUBY_VERSION to default Ruby
@@ -188,11 +192,6 @@ if [ ! -d "$HOME/.rubies" ]; then
   # https://github.com/brianmario/mysql2#mac-os-x
   # bundle config set build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
-fi
-
-fancy_echo "Installing Oh My Zsh ..."
-if [ ! -d "$HOME/.oh-my-zsh/" ]; then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # In the past it was necessary to install Apple's XCode IDE to get
