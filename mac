@@ -31,9 +31,9 @@ update_shell() {
   sudo chsh -s "$shell_path" "$USER" # Changes shell for "$USER"
 }
 
-echo "Current shell: $SHELL"
-echo "Shell path: $(command -v zsh)"
-if ! command -v xcode-select >/dev/null; then
+echo "Current shell: $SHELL" # /bin/bash
+echo "Shell path: $(command -v zsh)" # /bin/zsh
+if command -v xcode-select >/dev/null; then
   xcode-select -p
 fi
 
