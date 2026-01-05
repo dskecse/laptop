@@ -127,6 +127,18 @@ brew "yarn"
 
 # Databases
 brew "postgresql@18", restart_service: :changed
+# https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
+# $ psql-18
+# psql-18: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "dskecse" does not exist
+# When doing "psql" only!
+# initdb /usr/local/var/postgres -- older mac
+# initdb /opt/homebrew/var/postgresql@18
+# zsh: command not found: initdb
+# /opt/homebrew/Cellar/postgresql@18/18.1/bin/initdb /opt/homebrew/var/postgresql@18 (dir already exists)
+# which createuser-18
+# /opt/homebrew/bin/createuser-18
+# createuser-18 -s postgres
+# createdb-18 -U postgres -h localhost -p 5432 -O postgres rails_pg_ntuples
 brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
