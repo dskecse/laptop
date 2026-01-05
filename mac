@@ -147,13 +147,14 @@ if ! command -v psql >/dev/null 2>&1 ; then
   echo "psql command does not exist."
 
   export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-  which psql
+  ls "$HOMEBREW_PREFIX/bin" # has psql-18 but not psql
+  which psql || echo "psql does not exist."
 fi
-# which psql-18
-# which initdb
-# which createuser-18
-# find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
-# [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
+which psql-18 || echo "psql-18 does not exist."
+which initdb || echo "initdb does not exist."
+which createuser-18 || echo "createuser-18 does not exist."
+find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
+[ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
 # if command -v psql-18 >/dev/null ; then
 #   psql-18 --list # list available databases
 # fi
