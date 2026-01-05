@@ -161,7 +161,21 @@ if [ ! -d "$HOME/.rubies" ]; then
   echo "$ruby_version" > "$HOME/.ruby-version"
   # https://batsov.com/articles/2022/09/15/reload-zsh-configuration/
   # shellcheck disable=SC1091
-  . "$HOME/.zshrc"
+  # . "$HOME/.zshrc"
+  omz reload
+  # Fixes:
+  #
+  #   Error: Oh My Zsh can't be loaded from: . You need to run zsh instead.
+  #   Here's the process tree:
+  #
+  #    PPID   PID COMMAND
+  #       1   879 /bin/bash /opt/hca/start_hca.sh
+  #     879   895 /opt/hca/hosted-compute-agent
+  #     895  2144 /Users/runner/actions-runner/cached/bin/Runner.Listener run
+  #    2144  2187 /Users/runner/actions-runner/cached/bin/Runner.Worker spawnclient 143 146
+  #    2187  4208 /bin/bash -e /Users/runner/work/_temp/9cd1b003-0e4d-4537-a05e-90cbd5eb0e56.sh
+  #    4208  4210 sh mac
+  #
   # After installing new Rubies, one must restart the shell before chruby can recognize them.
   # https://github.com/postmodern/chruby#rubies-1
   # chruby "$ruby_version" # won't work, only sets shell's $RUBY_VERSION to default Ruby
