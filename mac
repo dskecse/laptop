@@ -148,9 +148,11 @@ if ! command -v psql >/dev/null 2>&1 ; then
 
   export PATH="$HOMEBREW_PREFIX/bin:$PATH"
   ls "$HOMEBREW_PREFIX/bin" # has psql-18 but not psql
-  which psql || echo "psql does not exist."
+  which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/psql
+
+  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH"
 fi
-which psql-18 || echo "psql-18 does not exist."
+which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18
 which initdb || echo "initdb does not exist."
 which createuser-18 || echo "createuser-18 does not exist."
 find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
