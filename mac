@@ -31,6 +31,12 @@ update_shell() {
   sudo chsh -s "$shell_path" "$USER" # Changes shell for "$USER"
 }
 
+echo "Current shell: $SHELL"
+echo "Shell path: $(command -v zsh)"
+if ! command -v xcode-select >/dev/null; then
+  echo "$(xcode-select -p)"
+fi
+
 case "$SHELL" in
   */zsh)
     if [ "$(command -v zsh)" != "$HOMEBREW_PREFIX/bin/zsh" ] ; then
@@ -109,7 +115,7 @@ brew "vim"
 brew "watch" # to execute a program periodically and show the output, can be ignored
 # Starting with macOS Catalina, zsh is the default login shell and interactive shell
 # See https://support.apple.com/en-us/102360
-brew "zsh"
+# brew "zsh"
 
 # GitHub
 brew "gh"
@@ -139,6 +145,9 @@ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   fancy_echo "Installing Oh My Zsh ..."
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+echo "Current shell: $SHELL"
+echo "Shell path: $(command -v zsh)"
 
 brew install chruby
 # shellcheck disable=SC1091
