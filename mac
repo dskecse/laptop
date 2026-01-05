@@ -56,13 +56,13 @@ fi
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     # Opt out of collecting anonymous analytics by Homebrew explicitly
-    #   https://docs.brew.sh/Analytics
+    # See https://docs.brew.sh/Analytics
     export HOMEBREW_NO_ANALYTICS=1
 
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # FYI: This also installs Xcode Command Line Tools before that!
-    # https://github.com/Homebrew/install/blob/f92e9a64f11580293bc0f1b87858f6aa3b9f8f23/install.sh#L850
+    # See https://github.com/Homebrew/install/blob/f92e9a64f11580293bc0f1b87858f6aa3b9f8f23/install.sh#L850
 
     export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
