@@ -143,6 +143,18 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
+which psql
+which psql-18
+which initdb
+which createuser-18
+ls "$HOMEBREW_PREFIX/Cellar" | grep postgres # postgresql@18
+[ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
+if command -v psql-18 >/dev/null ; then
+  psql-18 --list # list available databases
+fi
+ls "$HOMEBREW_PREFIX/Cellar" | grep postgres # postgresql@18
+[ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
+
 if ! brew list -1 | grep mongodb-community ; then
   brew install mongodb-community
 fi
