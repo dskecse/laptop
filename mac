@@ -31,6 +31,12 @@ update_shell() {
   sudo chsh -s "$shell_path" "$USER" # Changes shell for "$USER"
 }
 
+echo "Current shell: $SHELL" # /bin/bash
+echo "Shell path: $(command -v zsh)" # /bin/zsh
+if command -v xcode-select >/dev/null; then
+  xcode-select -p
+fi
+
 case "$SHELL" in
   */zsh)
     if [ "$(command -v zsh)" != "$HOMEBREW_PREFIX/bin/zsh" ] ; then
@@ -79,6 +85,12 @@ fi
 if ! xcode-select -p > /dev/null 2>&1 ; then
   fancy_echo "Installing XCode Command Line Tools ..."
   xcode-select --install
+fi
+
+echo "Current shell: $SHELL"
+echo "Shell path: $(command -v zsh)"
+if command -v xcode-select >/dev/null; then
+  xcode-select -p
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
