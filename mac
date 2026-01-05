@@ -146,8 +146,8 @@ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-echo "Current shell: $SHELL"
-echo "Shell path: $(command -v zsh)"
+echo "Current shell: $SHELL" # /bin/bash
+echo "Shell path: $(command -v zsh)" # /opt/homebrew/bin/zsh
 if command -v xcode-select >/dev/null; then
   xcode-select -p
 fi
