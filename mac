@@ -143,7 +143,7 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
-which psql
+command -v psql
 # which psql-18
 # which initdb
 # which createuser-18
