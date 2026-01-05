@@ -161,8 +161,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   echo "$ruby_version" > "$HOME/.ruby-version"
   # https://batsov.com/articles/2022/09/15/reload-zsh-configuration/
   # shellcheck disable=SC1091
-  # . "$HOME/.zshrc"
-  omz reload
+  source "$HOME/.zshrc"
   # Fixes:
   #
   #   Error: Oh My Zsh can't be loaded from: . You need to run zsh instead.
