@@ -22,21 +22,17 @@ fi
 
 update_shell() {
   shell_path="$(command -v zsh)"
+  echo "Shell path: $shell_path" # /bin/zsh
 
   fancy_echo "Changing your shell to zsh ..."
   if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
     fancy_echo "Adding '$shell_path' to /etc/shells"
-    sudo sh -c "echo $shell_path >> /etc/shells" # Adds "/opt/homebrew/bin/zsh"
+    sudo sh -c "echo $shell_path >> /etc/shells"
   fi
   sudo chsh -s "$shell_path" "$USER" # Changes shell for "$USER"
 }
 
 echo "Current shell: $SHELL" # /bin/bash
-echo "Shell path: $(command -v zsh)" # /bin/zsh
-if command -v xcode-select >/dev/null; then
-  xcode-select -p
-fi
-
 case "$SHELL" in
   */zsh)
     if [ "$(command -v zsh)" != "$HOMEBREW_PREFIX/bin/zsh" ] ; then
@@ -174,9 +170,6 @@ fi
 
 echo "Current shell: $SHELL" # /bin/bash
 echo "Shell path: $(command -v zsh)" # /opt/homebrew/bin/zsh
-if command -v xcode-select >/dev/null; then
-  xcode-select -p
-fi
 
 brew install chruby
 # shellcheck disable=SC1091
