@@ -152,28 +152,20 @@ which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/
 which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18, a symlink to /opt/homebrew/Cellar/postgresql@18/18.1_1/bin/psql
 # [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
 
+# psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "$USER" does not exist
 # https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
 #
-# psql -Alt:
-# * displays results in unaligned format, i.e. with record fields separated by "|"
-# * displays available Postgres databases
-# * does not output columns names, row counts, etc.
-#
-# grep -xq:
-# * forces a pattern to match only whole lines
-# * suppresses the normal output
-#
-if ! psql -Alt | awk -F'|' '{print $1}' | grep -xq "$USER" ; then
+# Check to see whether 'psql' succeeds
+if ! psql -c 'SELECT 1;' ; then
   fancy_echo "Creating a missing '$USER' db in Postgres ..."
   echo "BEFORE:"
   psql -l
-  psql -c 'SELECT 1;' # Check to see whether 'psql' succeeds here
 
   createdb # Creates a db w/ a name & owner equal to "$USER"
   echo "AFTER:"
   psql -l
 
-  fancy_echo "Checking to see whether 'psql' succeeds ..."
+  fancy_echo "Checking to see whether 'psql' succeeds now ..."
   psql -c 'SELECT 1;'
 fi
 
