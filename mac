@@ -127,46 +127,34 @@ brew "yarn"
 
 # Databases
 brew "postgresql@18", restart_service: :changed
-# $ psql-18
-# psql-18: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "dskecse" does not exist
-# When doing "psql" only!
-# initdb /usr/local/var/postgres -- older mac
-# initdb /opt/homebrew/var/postgresql@18
-# zsh: command not found: initdb
-# /opt/homebrew/Cellar/postgresql@18/18.1/bin/initdb /opt/homebrew/var/postgresql@18 (dir already exists)
-# which createuser-18
-# /opt/homebrew/bin/createuser-18
-# createuser-18 -s postgres
-# createdb-18 -U postgres -h localhost -p 5432 -O postgres rails_pg_ntuples
 brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
-if ! command -v psql >/dev/null 2>&1 ; then
-  echo "psql command does not exist."
+if ! command -v psql >/dev/null ; then
+  fancy_echo "psql command does not exist, making it available in this session ...\n"
 
-  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # Contains psql-18, initdb-18, createdb-18, createuser-18, but not psql
-  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # Contains psql, initdb, createdb, createuser
+  echo "To persist the changes, add these commands to your .zshrc:"
+  echo "  export PATH=\"\$HOMEBREW_PREFIX/opt/postgresql@18/bin:\$PATH\""
+  echo "  export PATH=\"\$HOMEBREW_PREFIX/bin:\$PATH\""
+
+  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # Adds psql, initdb, createdb, etc. to PATH
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # Adds psql-18, initdb-18, createdb-18, etc. to PATH
+  # FYI: /opt/homebrew/bin/psql-18 (symlink) -> /opt/homebrew/Cellar/postgresql@18/18.1_1/bin/psql
 fi
-which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/psql
-which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18, a symlink to /opt/homebrew/Cellar/postgresql@18/18.1_1/bin/psql
-# [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
 
-# psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "$USER" does not exist
 # https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
+# psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "$USER" does not exist
 #
 # Check to see whether 'psql' succeeds
-if ! psql -c 'SELECT 1;' ; then
+if ! psql -c 'SELECT 1;' >/dev/null ; then
   fancy_echo "Creating a missing '$USER' db in Postgres ..."
-  echo "BEFORE:"
-  psql -l
 
   createdb # Creates a db w/ a name & owner equal to "$USER"
-  echo "AFTER:"
   psql -l
 
   fancy_echo "Checking to see whether 'psql' succeeds now ..."
-  psql -c 'SELECT 1;'
+  psql -c 'SELECT 1;' >/dev/null && echo 'yes' || echo 'no'
 fi
 
 if ! brew list -1 | grep mongodb-community ; then
