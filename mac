@@ -127,7 +127,6 @@ brew "yarn"
 
 # Databases
 brew "postgresql@18", restart_service: :changed
-# https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
 # $ psql-18
 # psql-18: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "dskecse" does not exist
 # When doing "psql" only!
@@ -146,29 +145,37 @@ EOF
 if ! command -v psql >/dev/null 2>&1 ; then
   echo "psql command does not exist."
 
-  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # psql-18, initdb-18, createdb-18, createuser-18
-  ls "$HOMEBREW_PREFIX/bin" # has psql-18 but not psql
-  which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/psql
-
-  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # psql, initdb, createdb, createuser
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # Contains psql-18, initdb-18, createdb-18, createuser-18, but not psql
+  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # Contains psql, initdb, createdb, createuser
 fi
-which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18
-which initdb || echo "initdb does not exist." # /opt/homebrew/opt/postgresql@18/bin/initdb
-which createuser-18 || echo "createuser-18 does not exist." # /opt/homebrew/bin/createuser-18
-find "$HOMEBREW_PREFIX/Cellar" -type d -name 'postgres*' -depth 1 # postgresql@18
-[ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
-# https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
-if command -v createdb >/dev/null 2>&1 ; then
-  psql -l # Display available Postgres databases
-  createdb # Creates a db w/ a name & owner equal to "$USER"
-  psql -l
-  # psql -c 'SELECT 1;' # Test if "psql" succeeds
-fi
-# if command -v psql-18 >/dev/null ; then
-#   psql-18 --list # list available databases
-# fi
-# find /opt/homebrew/Cellar -type d -name 'postgres*' -depth 1 # postgresql@18
+which psql || echo "psql does not exist." # /opt/homebrew/opt/postgresql@18/bin/psql
+which psql-18 || echo "psql-18 does not exist." # /opt/homebrew/bin/psql-18, a symlink to /opt/homebrew/Cellar/postgresql@18/18.1_1/bin/psql
 # [ -d "$HOMEBREW_PREFIX/var/postgresql@18" ] && echo "$HOMEBREW_PREFIX/var/postgresql@18 exists!"
+
+# https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
+#
+# psql -Alt:
+# * displays results in unaligned format, i.e. with record fields separated by "|"
+# * displays available Postgres databases
+# * does not output columns names, row counts, etc.
+#
+# grep -xq:
+# * forces a pattern to match only whole lines
+# * suppresses the normal output
+#
+if ! psql -Alt | awk -F'|' '{print $1}' | grep -xq "$USER" ; then
+  fancy_echo "Creating a missing '$USER' db in Postgres ..."
+  echo "BEFORE:"
+  psql -l
+  psql -c 'SELECT 1;' # Check to see whether 'psql' succeeds here
+
+  createdb # Creates a db w/ a name & owner equal to "$USER"
+  echo "AFTER:"
+  psql -l
+
+  fancy_echo "Checking to see whether 'psql' succeeds ..."
+  psql -c 'SELECT 1;'
+fi
 
 if ! brew list -1 | grep mongodb-community ; then
   brew install mongodb-community
