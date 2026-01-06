@@ -147,14 +147,14 @@ fi
 # psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "$USER" does not exist
 #
 # Check to see whether 'psql' succeeds
-if ! psql -c "SELECT 1;" >/dev/null ; then
+if ! psql -c "SELECT 1;" >/dev/null 2>&1 ; then
   fancy_echo "Creating a missing '$USER' db in Postgres ..."
 
   createdb # Creates a db w/ a name & owner equal to "$USER"
   psql -l  # Displays available databases
 
   fancy_echo "Checking to see whether 'psql' succeeds now ..."
-  psql -c "SELECT 1;" >/dev/null && echo "yes" || echo "no"
+  psql -c "SELECT 1;" >/dev/null 2>&1 && echo "yes" || echo "no"
 fi
 
 if ! brew list -1 | grep mongodb-community ; then
