@@ -33,6 +33,7 @@ update_shell() {
 
 echo "Current shell: $SHELL" # /bin/bash
 echo "Shell path: $(command -v zsh)" # /bin/zsh
+cat /etc/shells
 if command -v xcode-select >/dev/null; then
   xcode-select -p
 fi
@@ -174,6 +175,7 @@ fi
 
 echo "Current shell: $SHELL" # /bin/bash
 echo "Shell path: $(command -v zsh)" # /opt/homebrew/bin/zsh
+cat /etc/shells
 if command -v xcode-select >/dev/null; then
   xcode-select -p
 fi
