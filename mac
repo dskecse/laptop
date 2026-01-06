@@ -137,6 +137,32 @@ brew "redis", restart_service: :changed
 tap "mongodb/brew"
 EOF
 
+if ! command -v psql >/dev/null ; then
+  fancy_echo "psql command does not exist, making it available in this session ...\n"
+
+  echo "To persist the changes, add these commands to your .zshrc:"
+  echo "  export PATH=\"\$HOMEBREW_PREFIX/opt/postgresql@18/bin:\$PATH\""
+  echo "  export PATH=\"\$HOMEBREW_PREFIX/bin:\$PATH\""
+
+  export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH" # Adds psql, initdb, createdb, etc. to PATH
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH" # Adds psql-18, initdb-18, createdb-18, etc. to PATH
+  # FYI: /opt/homebrew/bin/psql-18 (symlink) -> /opt/homebrew/Cellar/postgresql@18/18.1_1/bin/psql
+fi
+
+# https://stackoverflow.com/questions/17633422/psql-fatal-database-user-does-not-exist/17936043#17936043
+# psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "$USER" does not exist
+#
+# Check to see whether 'psql' succeeds
+if ! psql -c "SELECT 1;" >/dev/null 2>&1 ; then
+  fancy_echo "Creating a missing '$USER' db in Postgres ..."
+
+  createdb # Creates a db w/ a name & owner equal to "$USER"
+  psql -l  # Displays available databases
+
+  fancy_echo "Checking to see whether 'psql' succeeds now ..."
+  psql -c "SELECT 1;" >/dev/null 2>&1 && echo "yes" || echo "no"
+fi
+
 if ! brew list -1 | grep mongodb-community ; then
   brew install mongodb-community
 fi
