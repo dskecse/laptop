@@ -252,31 +252,31 @@ if ! brew list -1 | grep ^go$ ; then
 fi
 
 brew bundle --file=- <<EOF
-brew 'duff'
-brew 'jq'
-brew 'yq'
-brew 'gist'
-brew 'graphviz'
-brew 'nmap'
-brew 'tig'
-brew 'dos2unix'
-brew 'httpie'
-brew 'shellcheck'
-brew 'cloc'
-brew 'samply' # command-line CPU profiler w/ Firefox Profiler compatible reports
+brew "duff"
+brew "jq"
+brew "yq"
+brew "gist"
+brew "graphviz"
+brew "nmap"
+brew "tig"
+brew "dos2unix"
+brew "httpie"
+brew "shellcheck"
+brew "cloc"
+brew "samply" # command-line CPU profiler w/ Firefox Profiler compatible reports
 
-brew 'wasmtime'
+brew "wasmtime"
 
 # https://nokogiri.org/tutorials/installing_nokogiri.html#installing-native-gems
-# brew 'libxml2'
-# brew 'libxslt'
+# brew "libxml2"
+# brew "libxslt"
 
-cask 'iterm2'
+cask "iterm2"
 
-brew 'java'
+brew "java"
 
-# cask 'emacs'
-# cask 'mozart2'
+# cask "emacs"
+# cask "mozart2"
 
 # FYI: Emacs comes w/ its own ctags, so this should be installed and linked after emacs.
 # Currently fails:
@@ -285,35 +285,35 @@ brew 'java'
 brew "universal-ctags" # index files for vim tab completion of methods, classes, variables
 
 # Set up minimal Python3 development environment
-brew 'python@3.14'
-cask 'gcloud-cli'
+brew "python@3.14"
+cask "gcloud-cli"
 
-brew 'ghc'
-brew 'cabal-install'
+brew "ghc"
+brew "cabal-install"
 
-brew 'leiningen'
-brew 'clojure'
+brew "leiningen"
+brew "clojure"
 
-tap 'hashicorp/tap'
-brew 'hashicorp/tap/vault'
+tap "hashicorp/tap"
+brew "hashicorp/tap/vault"
 
-# tap 'qltysh/tap'
-# brew 'qlty'
+# tap "qltysh/tap"
+# brew "qlty"
 
-cask 'firefox'
-# cask 'chromedriver' # FYI: A binary already exists in the system somehow.
+cask "firefox"
+# cask "chromedriver" # FYI: A binary already exists in the system somehow.
 
-cask 'ngrok'
-# cask 'wireshark-app'
+cask "ngrok"
+# cask "wireshark-app"
 
-cask 'dropbox'
+cask "dropbox"
 
 # In case there's client-server compatibility issue, use a specific version, e.g.
-# brew 'kubernetes-cli@1.26'
-brew 'kubernetes-cli'
-brew 'kind'
-brew 'helm'
-# brew 'minikube'
+# brew "kubernetes-cli@1.26"
+brew "kubernetes-cli"
+brew "kind"
+brew "helm"
+# brew "minikube"
 
 # As per https://docs.docker.com/desktop/install/mac-install/:
 #
@@ -322,41 +322,41 @@ brew 'helm'
 # Up-to-date macOS versions list: https://support.apple.com/en-us/109033#latest
 # Docker release notes: https://docs.docker.com/desktop/release-notes/
 #
-# cask 'docker'
+# cask "docker"
 
 # OrbStack: https://orbstack.dev/download
 # Fast, light, powerful way to run containers
 # Supports macOS 13.0+
-cask 'orbstack'
+cask "orbstack"
 
-cask 'tunnelbear'
-cask 'openvpn-connect'
-cask 'cyberduck' # upload media to S3 buckets
+cask "tunnelbear"
+cask "openvpn-connect"
+cask "cyberduck" # upload media to S3 buckets
 
 # Get set for native app development
-# brew 'cocoapods'
-# brew 'watchman'
+# brew "cocoapods"
+# brew "watchman"
 
-brew 'gpg2'
+brew "gpg2"
 
 # To get rid of "gpg: problem with the agent: Inappropriate ioctl for device"
 # http://support.gpgtools.org/discussions/problems/42548-passphrase-window-not-shown
-brew 'pinentry-mac'
+brew "pinentry-mac"
 
 # To only ever launch one instance of gpg agent and share the agents across
 # every shell
 # http://nullprogram.com/blog/2012/06/08/
-brew 'keychain'
+brew "keychain"
 
-brew 'lame'
-brew 'ffmpeg'
-brew 'exiftool'
-cask 'handbrake-app'
-cask 'iina'
+brew "lame"
+brew "ffmpeg"
+brew "exiftool"
+cask "handbrake-app"
+cask "iina"
 
-cask 'postico'
+cask "postico"
 
-cask 'fliqlo'
+cask "fliqlo"
 EOF
 
 if [ ! -d "$HOME/.vim/" ]; then
