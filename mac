@@ -273,8 +273,6 @@ brew "wasmtime"
 
 cask "iterm2"
 
-brew "java"
-
 # cask "emacs"
 # cask "mozart2"
 
@@ -291,6 +289,7 @@ cask "gcloud-cli"
 brew "ghc"
 brew "cabal-install"
 
+brew "openjdk"
 brew "leiningen"
 brew "clojure"
 
