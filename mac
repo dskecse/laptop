@@ -328,6 +328,11 @@ brew "helm"
 # Supports macOS 13.0+
 cask "orbstack"
 
+# OpenCode: the open source coding agent
+# https://github.com/anomalyco/opencode#installation
+tap "anomalyco/tap"
+brew "anomalyco/tap/opencode"
+
 cask "tunnelbear"
 cask "openvpn-connect"
 cask "cyberduck" # upload media to S3 buckets
