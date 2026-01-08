@@ -189,7 +189,7 @@ if [ ! -d "$HOME/.rubies" ]; then
 
   ruby_version="$(find_latest_ruby)"
   if ! chruby | grep -Fq "$ruby_version"; then
-    # https://github.com/postmodern/ruby-install?tab=readme-ov-file#synopsis
+    # https://github.com/postmodern/ruby-install#synopsis
     # https://github.com/postmodern/ruby-install/blob/master/share/ruby-install/ruby-install.sh#L33
     # FYI: This will download the source code into ~/.cache/ruby-install/ rather than ~/src/.
     # The "--with-opt-dir=$HOMEBREW_PREFIX/opt/jemalloc" option fixes the following error:
@@ -239,7 +239,7 @@ if [ ! -d "$HOME/.rubies" ]; then
   bundle config set path ".bundle"
   bundle config set without production
   # https://github.com/brianmario/mysql2#general-instructions
-  # https://github.com/brianmario/mysql2#mac-os-x
+  # https://github.com/brianmario/mysql2#macos
   # bundle config set build.mysql2 -- \
   #   --with-mysql-dir="$HOMEBREW_PREFIX/opt/mysql" --with-openssl-dir="$HOMEBREW_PREFIX/opt/openssl"
 fi
