@@ -361,8 +361,6 @@ brew 'exiftool'
 cask 'handbrake-app'
 cask 'iina'
 
-# brew 'postgis'
-
 cask 'postico'
 
 cask 'fliqlo'
