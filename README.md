@@ -98,6 +98,10 @@ Programming languages, package managers and prerequisites:
 * [Cabal](https://cabal.readthedocs.io/en/stable/) for managing Haskell projects and dependencies
 * [Wasmtime](https://wasmtime.dev) for running WebAssembly (Wasm) code, see [more info](https://docs.wasmtime.dev)
 
+AI tools:
+
+* [OpenCode](https://opencode.ai) an open source AI coding agent
+
 Media tools:
 
 * [Cyberduck](https://cyberduck.io) for uploading media files to S3 buckets and browsing cloud storage
