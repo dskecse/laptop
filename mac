@@ -328,6 +328,9 @@ brew "helm"
 # Supports macOS 13.0+
 cask "orbstack"
 
+# Get up and running with LLMs locally
+# https://docs.ollama.com/macos
+cask "ollama-app"
 # OpenCode: the open source coding agent
 # https://github.com/anomalyco/opencode#installation
 tap "anomalyco/tap"

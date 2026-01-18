@@ -100,6 +100,7 @@ Programming languages, package managers and prerequisites:
 
 AI tools:
 
+* [Ollama](https://ollama.com) for creating and running LLMs locally
 * [OpenCode](https://opencode.ai) an open source AI coding agent
 
 Media tools:
