@@ -337,7 +337,6 @@ tap "anomalyco/tap"
 brew "anomalyco/tap/opencode"
 
 cask "tunnelbear"
-cask "openvpn-connect"
 cask "cyberduck" # upload media to S3 buckets
 
 # Get set for native app development
