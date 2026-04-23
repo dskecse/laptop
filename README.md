@@ -68,7 +68,6 @@ Databases:
 
 * [Postgres 18](https://www.postgresql.org) for storing relational data
 * [Redis 8](https://redis.io) for storing key-value data
-* [MongoDB 8](https://www.mongodb.com) for storing document-oriented data
 
 Database clients:
 

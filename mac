@@ -130,7 +130,6 @@ brew "yarn"
 # Databases
 brew "postgresql@18", restart_service: :changed
 brew "redis", restart_service: :changed
-tap "mongodb/brew"
 EOF
 
 if ! command -v psql >/dev/null ; then
@@ -157,10 +156,6 @@ if ! psql -c "SELECT 1;" >/dev/null 2>&1 ; then
 
   fancy_echo "Checking to see whether 'psql' succeeds now ..."
   psql -c "SELECT 1;" >/dev/null 2>&1 && echo "yes" || echo "no"
-fi
-
-if ! brew list -1 | grep mongodb-community ; then
-  brew install mongodb-community
 fi
 
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
