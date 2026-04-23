@@ -100,7 +100,6 @@ Programming languages, package managers and prerequisites:
 
 AI tools:
 
-* [llama.cpp](https://github.com/ggml-org/llama.cpp) for LLM inference locally
 * [Ollama](https://ollama.com) for creating and running LLMs locally
 * [OpenCode](https://opencode.ai) an open source AI coding agent
 
