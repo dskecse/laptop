@@ -113,6 +113,10 @@ brew "watch" # to execute a program periodically and show the output, can be ign
 # See https://support.apple.com/en-us/102360
 brew "zsh"
 
+# Encrypted secrets management
+tap "dotenvx/brew"
+brew "dotenvx/brew/dotenvx"
+
 # GitHub
 brew "gh"
 

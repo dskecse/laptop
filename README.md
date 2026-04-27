@@ -97,6 +97,10 @@ Programming languages, package managers and prerequisites:
 * [Cabal](https://cabal.readthedocs.io/en/stable/) for managing Haskell projects and dependencies
 * [Wasmtime](https://wasmtime.dev) for running WebAssembly (Wasm) code, see [more info](https://docs.wasmtime.dev)
 
+Encrypted secrets management:
+
+* [dotenvx](https://dotenvx.com/) for managing encrypted secrets
+
 AI tools:
 
 * [Ollama](https://ollama.com) for creating and running LLMs locally
