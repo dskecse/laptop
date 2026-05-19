@@ -62,6 +62,7 @@ GitHub tools:
 Editors:
 
 * [Vim](https://www.vim.org)
+* [Neovim](https://neovim.io/)
 * [Universal Ctags](https://ctags.io) for indexing files for vim tab completion and locating indexed items
 
 Databases:
