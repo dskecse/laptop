@@ -84,9 +84,12 @@ if ! xcode-select -p > /dev/null 2>&1 ; then
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
-ls -la "$(brew --prefix)/var/homebrew/locks"
+# NOTE: `brew cleanup` runs the cleanup to avoid running into:
+#
+#   lockf: 200: already locked
+#   Error: Another `brew update` process is already running.
+#   Please wait for it to finish or terminate it to continue.
 brew cleanup -s
-ls -la "$(brew --prefix)/var/homebrew/locks"
 brew update --force
 
 # FYI: macOS 26 arm64 runner image already contains `awscli` formula installed
