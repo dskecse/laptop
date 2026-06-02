@@ -84,6 +84,7 @@ if ! xcode-select -p > /dev/null 2>&1 ; then
 fi
 
 fancy_echo "Updating Homebrew formulae ..."
+ls -la "$(brew --prefix)/var/homebrew/locks"
 brew update --force
 
 # FYI: macOS 26 arm64 runner image already contains `awscli` formula installed
