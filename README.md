@@ -131,7 +131,6 @@ Containers & orchestration tools:
 Cloud management tools:
 
 * [gcloud CLI](https://cloud.google.com/cli) for managing resources and applications hosted on Google Cloud
-* [Hashicorp Vault](https://github.com/hashicorp/vault) for managing secrets and protecting sensitive data
 
 OpenPGP encryption & signing tools:
 

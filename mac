@@ -299,9 +299,6 @@ brew "openjdk"
 brew "leiningen"
 brew "clojure"
 
-tap "hashicorp/tap"
-brew "hashicorp/tap/vault"
-
 # tap "qltysh/tap"
 # brew "qlty"
 
