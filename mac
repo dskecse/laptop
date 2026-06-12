@@ -121,7 +121,7 @@ brew "watch" # to execute a program periodically and show the output, can be ign
 brew "zsh"
 
 # Encrypted secrets management
-tap "dotenvx/brew"
+tap "dotenvx/brew", trusted: true
 brew "dotenvx/brew/dotenvx"
 
 # GitHub
@@ -336,7 +336,7 @@ cask "orbstack"
 cask "ollama-app"
 # OpenCode: the open source coding agent
 # https://github.com/anomalyco/opencode#installation
-tap "anomalyco/tap"
+tap "anomalyco/tap", trusted: true
 brew "anomalyco/tap/opencode"
 
 cask "tunnelbear"
