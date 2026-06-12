@@ -147,3 +147,4 @@ Misc:
 * [Dropbox](https://www.dropbox.com/)
 * [ngrok](https://ngrok.com/) for exposing APIs online
 * [Fliqlo](https://fliqlo.com/) a flip clock screensaver
+* [Obsidian](https://obsidian.md/) a personal note-taking app (Notion replacement)

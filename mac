@@ -365,6 +365,8 @@ cask "iina"
 
 cask "postico"
 
+cask "obsidian"
+
 cask "fliqlo"
 EOF
 
