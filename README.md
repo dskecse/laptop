@@ -52,7 +52,7 @@ Unix tools:
 Terminal:
 
 * [iTerm2](https://iterm2.com) a replacement for default macOS Terminal
-* TODO: Try out [Ghostty](https://ghostty.org) or [Warp](https://www.warp.dev/mac-terminal)
+* [Ghostty](https://ghostty.org) a potential iTerm2 replacement
 
 GitHub tools:
 
