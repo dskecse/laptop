@@ -340,6 +340,7 @@ cask "ollama-app"
 tap "anomalyco/tap", trusted: true
 brew "anomalyco/tap/opencode"
 cask "cursor"
+cask "claude-code"
 
 cask "tunnelbear"
 cask "cyberduck" # upload media to S3 buckets
