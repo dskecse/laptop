@@ -23,7 +23,7 @@ jobs:
           - macos-26
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: brew update
       - run: brew install shellcheck
       - run: shellcheck mac
