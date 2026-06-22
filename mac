@@ -339,6 +339,7 @@ cask "ollama-app"
 # https://github.com/anomalyco/opencode#installation
 tap "anomalyco/tap", trusted: true
 brew "anomalyco/tap/opencode"
+cask "cursor"
 
 cask "tunnelbear"
 cask "cyberduck" # upload media to S3 buckets

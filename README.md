@@ -106,6 +106,8 @@ AI tools:
 
 * [Ollama](https://ollama.com) for creating and running LLMs locally
 * [OpenCode](https://opencode.ai) an open source AI coding agent
+* [Cursor](https://cursor.com/) an AI coding agent
+* TODO: Try out [Pi](https://pi.dev/), [Kilo](https://kilo.ai/)
 
 Media tools:
 
