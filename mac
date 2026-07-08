@@ -370,8 +370,6 @@ cask "iina"
 cask "postico"
 
 cask "obsidian"
-
-cask "fliqlo"
 EOF
 
 if [ ! -d "$HOME/.vim/" ]; then
