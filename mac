@@ -92,12 +92,6 @@ fancy_echo "Updating Homebrew formulae ..."
 brew cleanup -s
 brew update --force
 
-# FYI: macOS 26 arm64 runner image already contains `awscli` formula installed
-# See https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md#tools
-# Currently depends on `python@3.14`
-# brew install --overwrite python@3.14
-# brew install --overwrite awscli
-
 # No need for a specific version of Python, always have Homebrew's `python3` in your `PATH`
 # FYI: As of Oct 9, 2025 `python3` is aliased to `python@3.14`
 # See https://github.com/Homebrew/homebrew-core/blob/master/Aliases/python3
@@ -376,12 +370,6 @@ if [ ! -d "$HOME/.vim/" ]; then
   git clone https://github.com/dskecse/dotvim.git ~/.vim
   ln -sf ~/.vim/vimrc ~/.vimrc
 fi
-
-# if [ ! -d "$HOME/.aws" ]; then
-  # aws configure
-  # AWS Access Key ID [None]:
-  # EOF when reading a line
-# fi
 
 gems_credentials_file="$HOME/.local/share/gem/credentials"
 if [ ! -f "$gems_credentials_file" ]; then
