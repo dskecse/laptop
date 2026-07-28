@@ -138,9 +138,9 @@ Cloud management tools:
 
 OpenPGP encryption & signing tools:
 
-* [GPG2](https://gnupg.org) for encrypting and signing data, e.g. Git commits, see [more info](https://docs.releng.linuxfoundation.org/en/latest/gpg.html)
+* [GPG2](https://gnupg.org) for encrypting and signing data, e.g. Git commits and tags, see [more info](https://docs.releng.linuxfoundation.org/en/latest/gpg.html)
 * [pinentry-mac](https://github.com/GPGTools/pinentry) for entering PINs or GPG passphrases in a native-looking pop-up window and preventing them from being logged, see [more info](http://support.gpgtools.org/discussions/problems/42548-passphrase-window-not-shown)
-* [Keychain](https://www.funtoo.org/Funtoo:Keychain) for launching only one instance of a GPG agent and sharing the agent across every shell, see [more info](https://nullprogram.com/blog/2012/06/08/)
+* [Keychain](https://kernel-seeds.org/projects/keychain/) for launching only one instance of an SSH agent and sharing it across every shell, see [more](https://nullprogram.com/blog/2012/06/08/) [info](https://kernel-seeds.org/news/2026-07-27-keychain-3-0-1/)
 
 VPNs:
 
