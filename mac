@@ -362,6 +362,7 @@ cask "handbrake-app"
 cask "iina"
 
 cask "postico"
+cask "tableplus"
 
 cask "obsidian"
 EOF

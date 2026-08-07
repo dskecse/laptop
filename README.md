@@ -74,6 +74,7 @@ Databases:
 Database clients:
 
 * [Postico 2](https://eggerapps.at/postico2/) for managing Postgres databases
+* [Table Plus](https://tableplus.com/) for managing different types of databases
 
 Image tools:
 
