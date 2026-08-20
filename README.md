@@ -112,6 +112,10 @@ AI tools:
 * [Claude Code](https://claude.com/product/claude-code) a terminal-based AI coding agent
 * TODO: Try out [Pi](https://pi.dev/), [Kilo](https://kilo.ai/)
 
+Dictation tools:
+
+* [Handy](https://handy.computer/) for dictation in any text field locally (offline)
+
 Media tools:
 
 * [Cyberduck](https://cyberduck.io) for uploading media files to S3 buckets and browsing cloud storage

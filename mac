@@ -365,6 +365,7 @@ cask "postico"
 cask "tableplus"
 
 cask "obsidian"
+cask "handy"
 EOF
 
 if [ ! -d "$HOME/.vim/" ]; then
