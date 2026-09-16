@@ -8,6 +8,7 @@ Laptop is a script for setting up macOS dev environment.
 
 Supported macOS versions:
 
+* Golden Gate (27.x) on Apple Silicon
 * Tahoe (26.x) on Apple Silicon
 
 Older versions may work but are no longer tested.
