@@ -19,8 +19,12 @@ jobs:
       matrix:
         # https://github.com/actions/runner-images?tab=readme-ov-file#available-images
         # https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md
+        # https://github.blog/changelog/2026-07-16-xcode-27-runner-image-now-in-public-preview/#a-new-support-model-for-macos-images
+        # https://github.blog/changelog/2026-09-10-xcode-27-runner-image-now-runs-on-macos-27/
+        # https://github.com/actions/runner-images/blob/main/images/macos/xcode-27-arm64-Readme.md
         os:
           - macos-26
+          - xcode-27
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
