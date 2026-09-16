@@ -4,6 +4,14 @@
 
 Laptop is a script for setting up macOS dev environment.
 
+## Requirements
+
+Supported macOS versions:
+
+* Tahoe (26.x) on Apple Silicon
+
+Older versions may work but are no longer tested.
+
 ## Setup
 
 Set up macOS dev environment by running the following command:
